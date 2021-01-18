@@ -1,0 +1,73 @@
+.Root {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+  }
+
+body {
+    margin: 0;
+    padding: 0;
+}
+  
+.Nav {
+    background-color: #282c34;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    font-size: calc(10px + 2vmin);
+    color: white;
+    width: 100vw;
+    height: 10vh;
+}
+
+.Comp-1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    border: 1px solid blue;
+    height: 60vh;
+    width: 100vw;
+}
+
+.Comp-2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    width: 100vw;
+    height: 20vh;
+    border: 1px solid green;
+}
+    .button-cont {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+        border: 1px solid black;
+        height: 100%;
+        width: 400px;
+    }
+        .button-1 {
+            border: 1px solid red;
+        }
+        .button-2 {
+            border: 1px solid red;
+        }
+
+
+
+.Comp-6 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    border: 1px solid orange;
+    width: 100vw;
+    height: 10vh;
+}

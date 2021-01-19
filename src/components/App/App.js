@@ -11,16 +11,14 @@ class App extends Component {
       <div className='Root' >
         <Nav />
         <div className="Comp-1">
-          <div className='Cover-Image'></div>
+        <div className='button-cont'>
+            <Button type='primary'  size='large' >View</Button>
+            <Button type='danger'  size='large'>Log in</Button>
+          </div> 
         </div> 
-        <div className="Comp-2">
-          <div className='button-cont'>
-            <Button type='primary' size='large' >Primary</Button>
-            <Button type='ghost' size='large'>Ghost</Button>
-          </div>
-        </div>   
+           
         <div className="Comp-6">
-          Footer text
+          developed by
         </div>     
       </div>
     );

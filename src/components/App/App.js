@@ -13,8 +13,8 @@ class App extends Component {
         <Nav />
         <div className="Comp-1">
           <div className='button-cont'>
-            <Button type='primary'  size='large' >View</Button>
-            <Button type='danger'  size='large'>Log in</Button>
+            <Button type='primary' size='large' >View</Button>
+            <Button type='danger' size='large'>Log in</Button>
           </div> 
           <Footer />
         </div> 

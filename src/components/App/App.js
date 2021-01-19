@@ -2,7 +2,8 @@ import React, {Component} from 'react';
 import { Button } from 'antd';
 import './App.css';
 
-import Nav from '../Nav/Nav'
+import Nav from '../Nav/Nav';
+import Footer from '../Footer/Footer';
 
 class App extends Component {
 
@@ -15,9 +16,7 @@ class App extends Component {
             <Button type='primary'  size='large' >View</Button>
             <Button type='danger'  size='large'>Log in</Button>
           </div> 
-          <div className="Comp-6">
-          developed by / donate here / contribute here
-          </div> 
+          <Footer />
         </div> 
            
             

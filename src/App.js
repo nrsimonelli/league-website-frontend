@@ -10,7 +10,7 @@ function App() {
         </div>
       </div> 
       <div className="Comp-1">
-      Welcome! (cover image )
+        <div className='Cover-Image'></div>
       </div> 
       <div className="Comp-2">
         <div className='button-cont'>

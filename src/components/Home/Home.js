@@ -9,18 +9,30 @@ class Home extends Component {
     this.props.history.push('/standings');
   }
 
+  logInClicked = () => {
+    console.log('Log in was clicked');
+  }
+
   render() {
     return (
       <div className="Home">
         <div className='Button-cont'>
             <Button 
               type='primary' 
+              shape='default'
               size='large'
               onClick={this.navToStandings}
             >
               View
             </Button>
-            <Button type='danger' size='large'>Log in</Button>
+            <Button 
+              type='danger' 
+              shape='default'
+              size='large'
+              onClick={this.logInClicked}
+            >
+              Log in
+            </Button>
         </div> 
         <Footer />
       </div>

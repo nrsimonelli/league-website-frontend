@@ -1,13 +1,92 @@
 import React, {Component} from 'react';
 
+const sampleData = {
+  season: 1,
+  division: [
+    {division: 1, league: [
+      {league: 1, players: [
+        {playerName: 'JoyDivision', gamesPlayed: 4, pointScored: 20},
+        {playerName: 'N0ne', gamesPlayed: 3, pointScored: 12},
+        {playerName: 'Mr. Der', gamesPlayed: 3, pointScored: 9},
+        {playerName: 'Zesix', gamesPlayed: 3, pointScored: 10},
+        {playerName: 'Paju', gamesPlayed: 4, pointScored: 6},
+        {playerName: 'viamer', gamesPlayed: 4, pointScored: 7},
+        {playerName: 'FOMOF', gamesPlayed: 3, pointScored: 3}
+      ]}
+    ]},
+    {division: 2, league: [
+      {league: 1, players: [
+        {playerName: 'Gaami', gamesPlayed: 4, pointScored: 12},
+        {playerName: 'Mooni', gamesPlayed: 3, pointScored: 9},
+        {playerName: 'IceFortress', gamesPlayed: 3, pointScored: 18},
+        {playerName: 'Sledboy', gamesPlayed: 3, pointScored: 0},
+        {playerName: 'Archer', gamesPlayed: 4, pointScored: 6},
+        {playerName: 'knightRider', gamesPlayed: 4, pointScored: 17},
+        {playerName: 'Altar', gamesPlayed: 3, pointScored: 13}
+      ]},
+      {league: 2, players: [
+        {playerName: 'beta', gamesPlayed: 4, pointScored: 15},
+        {playerName: 'Lucky', gamesPlayed: 3, pointScored: 18},
+        {playerName: 'qazzaq', gamesPlayed: 3, pointScored: 9},
+        {playerName: 'Germy', gamesPlayed: 3, pointScored: 1},
+        {playerName: 'ammorning', gamesPlayed: 4, pointScored: 6},
+        {playerName: 'Nevic', gamesPlayed: 4, pointScored: 3},
+        {playerName: 'alpha', gamesPlayed: 3, pointScored: 0}
+      ]}
+    ]},
+    {division: 3, league: [
+      {league: 1, players: [
+        {playerName: 'wolf', gamesPlayed: 4, pointScored: 5},
+        {playerName: 'serpent', gamesPlayed: 3, pointScored: 8},
+        {playerName: 'lotus', gamesPlayed: 3, pointScored: 19},
+        {playerName: 'dragon', gamesPlayed: 3, pointScored: 1},
+        {playerName: 'rock', gamesPlayed: 4, pointScored: 16},
+        {playerName: 'kenji', gamesPlayed: 4, pointScored: 13},
+        {playerName: 'toga', gamesPlayed: 3, pointScored: 10}
+      ]},
+      {league: 2, players: [
+        {playerName: 'mang0', gamesPlayed: 4, pointScored: 12},
+        {playerName: 'hbox', gamesPlayed: 3, pointScored: 3},
+        {playerName: 'ppmd', gamesPlayed: 3, pointScored: 18},
+        {playerName: 'm2k', gamesPlayed: 3, pointScored: 9},
+        {playerName: 'Zain', gamesPlayed: 4, pointScored: 12},
+        {playerName: 'plup', gamesPlayed: 4, pointScored: 9},
+        {playerName: 'leffen', gamesPlayed: 3, pointScored: 15}
+      ]},
+      {league: 3, players: [
+        {playerName: 'beta', gamesPlayed: 4, pointScored: 15},
+        {playerName: 'Lucky', gamesPlayed: 3, pointScored: 18},
+        {playerName: 'qazzaq', gamesPlayed: 3, pointScored: 9},
+        {playerName: 'Germy', gamesPlayed: 3, pointScored: 1},
+        {playerName: 'ammorning', gamesPlayed: 4, pointScored: 6},
+        {playerName: 'Nevic', gamesPlayed: 4, pointScored: 3},
+        {playerName: 'alpha', gamesPlayed: 3, pointScored: 0}
+      ]},
+      {league: 4, players: [
+        {playerName: 'beta', gamesPlayed: 4, pointScored: 15},
+        {playerName: 'Lucky', gamesPlayed: 3, pointScored: 18},
+        {playerName: 'qazzaq', gamesPlayed: 3, pointScored: 9},
+        {playerName: 'Germy', gamesPlayed: 3, pointScored: 1},
+        {playerName: 'ammorning', gamesPlayed: 4, pointScored: 6},
+        {playerName: 'Nevic', gamesPlayed: 4, pointScored: 3},
+        {playerName: 'alpha', gamesPlayed: 3, pointScored: 0}
+      ]}
+    ]},
+    
+  ],
+
+}
+
 
 class Overview extends Component {
+
+  
 
   render() {
     return (
       <div className='Overview' >
-       
-        body
+
+      body 
 
       </div>
     );

@@ -10,6 +10,7 @@ import './App.css';
 
 import Nav from '../Nav/Nav';
 import Home from '../Home/Home';
+import Overview from '../Overview/Overview';
 
 class App extends Component {
 
@@ -29,6 +30,11 @@ class App extends Component {
                 exact
                 path="/home"
                 component={Home}
+              />
+              <Route
+                exact
+                path="/standings"
+                component={Overview}
               />
               <Route 
                 render={() => <h1>404</h1>} 

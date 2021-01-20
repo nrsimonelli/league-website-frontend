@@ -26,7 +26,7 @@ body {
     height: 10vh;
 }
 
-.Comp-1 {
+.Home {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -40,7 +40,7 @@ body {
     background-size: cover;
 }
 
-    .button-cont {
+    .Button-cont {
         display: flex;
         flex-direction: row;
         align-items: flex-end;

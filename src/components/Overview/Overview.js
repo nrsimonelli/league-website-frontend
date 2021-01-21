@@ -84,9 +84,18 @@ class Overview extends Component {
 
   render() {
     return (
-      <div className='Overview' >
-
-      body 
+      <div className='Overview-cont' >
+        
+        <div className='Ov1'>
+          1
+        </div>
+        <div className='Ov2'>
+          2
+        </div>
+        <div className='Ov3'>
+          3
+        </div>
+       
 
       </div>
     );

@@ -84,17 +84,31 @@ class Overview extends Component {
 
   render() {
     return (
-      <div className='Overview-cont' >
+      <div className='Ov-root' >
+       <div className='Ov-cont'>
+        <div className='Ov-div'>
+          <div className='Ov-div-title'>Division title</div>
+          <div className='Ov-div-table'>table 1</div>
+        </div>
+       </div>
+       <div className='Ov-cont'>
+        <div className='Ov-div'>
+          <div className='Ov-div-title'>Division title</div>
+          <div className='Ov-div-table'>table 1</div>
+          <div className='Ov-div-table'>table 2</div>
         
-        <div className='Ov1'>
-          1
         </div>
-        <div className='Ov2'>
-          2
+       </div>
+       <div className='Ov-cont'>
+        <div className='Ov-div'>
+          <div className='Ov-div-title'>Division title</div>
+          <div className='Ov-div-table'>table 1</div>
+          <div className='Ov-div-table'>table 2</div>
+          <div className='Ov-div-table'>table 3</div>
+          <div className='Ov-div-table'>table 4</div>
+        
         </div>
-        <div className='Ov3'>
-          3
-        </div>
+       </div>
        
 
       </div>

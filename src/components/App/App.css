@@ -79,23 +79,25 @@ body {
         height: 100%;
         max-width: 1650px;
         width: 90vw;
-        margin-top: 15px;
+        margin-top: 24px;
 
     }
         .Ov-div {
-            border: 1px solid green;
             width: 100%;
-            
             display: flex;
             flex-wrap: wrap;
             flex-direction: row;
             
            
         }
+            .Ov-div-select {
+                width: 100%;
+                padding: 0px 24px 0px 24px;
+
+            }
             .Ov-div-title {
                 width: 100%;
-                border: 1px solid black;
-                padding: 0px 15px 0px 15px;
+                padding: 24px 0px 0px 24px;
                 
 
             }
@@ -103,7 +105,7 @@ body {
                 border: 1px solid purple;
                 height: 400px;
                 min-width: 400px;
-                padding: 0px 15px 0px 15px;
+                padding: 0px 24px 0px 24px;
                 
             }
            

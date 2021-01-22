@@ -1,4 +1,13 @@
 import React, {Component} from 'react';
+import { Divider } from 'antd';
+import { Select } from 'antd';
+
+const { Option } = Select;
+
+const sampleSeasons = [
+  { id: 1, season: 'Season 1'},
+  { id: 2, season: 'Season 2'},
+];
 
 const sampleData = {
   season: 1,
@@ -80,20 +89,36 @@ const sampleData = {
 
 class Overview extends Component {
 
-  
+  handleChange = (value) => {
+    console.log(`selected ${value}`);
+  }
 
   render() {
     return (
       <div className='Ov-root' >
-       <div className='Ov-cont'>
+        <div className='Ov-cont'>
+          <div className='Ov-div'>
+            <div className='Ov-div-select'>
+              <Select defaultValue='Season 2' onChange={this.handleChange}>
+               <Option value='Season 2'>Season 2</Option>
+               <Option value='Season 1'>Season 1</Option>
+
+              </Select>
+            </div>
+          </div>
+          
+        </div>
+        <div className='Ov-cont'>
         <div className='Ov-div'>
           <div className='Ov-div-title'>Division title</div>
+          <Divider />
           <div className='Ov-div-table'>table 1</div>
         </div>
        </div>
        <div className='Ov-cont'>
         <div className='Ov-div'>
           <div className='Ov-div-title'>Division title</div>
+          <Divider />
           <div className='Ov-div-table'>table 1</div>
           <div className='Ov-div-table'>table 2</div>
         
@@ -102,6 +127,7 @@ class Overview extends Component {
        <div className='Ov-cont'>
         <div className='Ov-div'>
           <div className='Ov-div-title'>Division title</div>
+          <Divider />
           <div className='Ov-div-table'>table 1</div>
           <div className='Ov-div-table'>table 2</div>
           <div className='Ov-div-table'>table 3</div>

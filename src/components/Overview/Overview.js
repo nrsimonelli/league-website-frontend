@@ -4,6 +4,24 @@ import { Select } from 'antd';
 
 const { Option } = Select;
 
+const columns = [
+  { title: 'Player',
+    dataIndex: 'playerName',
+    key: 'playerName',
+  },
+  {
+    title: 'Games Played',
+    dataIndex: 'gamesPlayed',
+    key: 'gamesPlayed',
+  },
+  {
+    title: 'Points',
+    dataIndex: 'pointScored',
+    key: 'pointScored',
+  },
+
+];
+
 const sampleSeasons = [
   { id: 1, season: 'Season 1'},
   { id: 2, season: 'Season 2'},

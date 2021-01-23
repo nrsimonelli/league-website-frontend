@@ -5,12 +5,29 @@ import Footer from '../Footer/Footer';
 
 class Home extends Component {
 
+  componentDidMount = () => {
+    console.log('Home did mount');
+    
+  }
+
   navToStandings = () => {
     this.props.history.push('/standings');
   }
 
   logInClicked = () => {
     console.log('Log in was clicked');
+    this.setState({
+      showLogin: false
+    });
+  }
+
+  navToRecord = () => {
+    this.props.history.push('/record');
+  }
+
+  state = {
+    showLogin: true,
+
   }
 
   render() {
@@ -25,7 +42,8 @@ class Home extends Component {
             >
               View
             </Button>
-            <Button 
+            {this.state.showLogin ? (
+              <Button 
               type='danger' 
               shape='default'
               size='large'
@@ -33,6 +51,19 @@ class Home extends Component {
             >
               Log in
             </Button>
+
+            ) : (
+            <Button 
+              type='danger' 
+              shape='default'
+              size='large'
+              onClick={this.navToRecord}
+            >
+              Record
+            </Button>
+
+            )}
+            
         </div> 
         <Footer />
       </div>

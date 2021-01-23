@@ -11,6 +11,7 @@ import './App.css';
 import Nav from '../Nav/Nav';
 import Home from '../Home/Home';
 import Overview from '../Overview/Overview';
+import Record from '../Record/Record';
 
 class App extends Component {
 
@@ -35,6 +36,11 @@ class App extends Component {
                 exact
                 path="/standings"
                 component={Overview}
+              />
+              <Route
+                exact
+                path="/record"
+                component={Record}
               />
               <Route 
                 render={() => <h1>404</h1>} 

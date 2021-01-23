@@ -11,6 +11,9 @@ class Nav extends Component {
           <div>
             icon/link container
           </div>
+          <div>
+            log-out
+          </div>
         </div> 
     );
   }

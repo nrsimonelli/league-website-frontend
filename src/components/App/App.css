@@ -75,7 +75,7 @@ body {
 }
     
     .Ov-cont {
-        border: 1px solid red;
+        /* border: 1px solid red; */
         height: 100%;
         max-width: 1650px;
         width: 90vw;
@@ -92,7 +92,8 @@ body {
         }
             .Ov-div-select {
                 width: 100%;
-                padding: 0px 24px 0px 24px;
+                padding: 0px 0px 0px 24px;
+                margin-top: 24px;
 
             }
             .Ov-div-title {
@@ -101,19 +102,22 @@ body {
                 
 
             }
+            
             .Ov-div-table {
-                border: 1px solid purple;
-                height: 400px;
+                /* border: 1px solid purple; */
+                /* height: 400px; */
                 min-width: 400px;
-                padding: 0px 24px 0px 24px;
+                padding: 0px 24px 48px 24px;
                 
             }
-           
+                .Ov-div-table-title {
+                    padding: 0px 0px 24px 0px
+                }
+            
 
-    @media only screen and (max-width: 600px) {
+    @media only screen and (max-width: 888px) {
         .Ov-cont {
             width: 100%;
-            background-color: yellow;
         }
         .Ov-div-table {
             width: 100%;

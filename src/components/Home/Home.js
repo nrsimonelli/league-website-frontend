@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import { Button } from 'antd';
 
 import Footer from '../Footer/Footer';
+import { withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 class Home extends Component {
 
@@ -72,4 +74,8 @@ class Home extends Component {
   
 }
 
-export default Home;
+const mapStateToProps = (state) => ({
+
+});
+
+export default withRouter(connect(mapStateToProps)(Home));

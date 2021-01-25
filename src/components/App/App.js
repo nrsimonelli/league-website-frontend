@@ -6,6 +6,7 @@ import {
   Switch,
 } from 'react-router-dom';
 
+import { connect } from 'react-redux';
 import './App.css';
 
 import Nav from '../Nav/Nav';
@@ -14,6 +15,7 @@ import Overview from '../Overview/Overview';
 import Record from '../Record/Record';
 import League from '../League/League';
 import Player from '../Player/Player';
+
 
 class App extends Component {
 
@@ -65,4 +67,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default connect()(App);

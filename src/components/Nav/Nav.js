@@ -1,11 +1,17 @@
 import React, {Component} from 'react';
+import { connect } from "react-redux";
+import {withRouter} from 'react-router-dom'
 
 class Nav extends Component {
+
+  navToHome = () => {
+    this.props.history.push('/')
+  }
 
   render() {
     return (
         <div className="Nav">
-          <div>
+          <div onClick={this.navToHome}>
             title
           </div>
           <div>
@@ -20,4 +26,4 @@ class Nav extends Component {
   
 }
 
-export default Nav;
+export default withRouter(connect()(Nav));

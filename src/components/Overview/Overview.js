@@ -159,7 +159,13 @@ class Overview extends Component {
                 title='Player'  
                 dataIndex='playerName' 
                 key='playerName' 
-                render={(key, record) => (<div className='Link-player' onClick={this.navToPlayer}>{record.playerName}</div>)} />
+                render={(key, record) => (
+                  <div 
+                    className='Link-player' 
+                    onClick={this.navToPlayer}>
+                    {record.playerName}
+                  </div>
+                )} />
               <Column title='Played' dataIndex='gamesPlayed' key='gamesPlayed' />
               <Column title='Points' dataIndex='pointScored' key='pointScored' />
             </Table>

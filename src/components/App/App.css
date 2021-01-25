@@ -12,25 +12,25 @@
     --text-primary: rgba(255, 255, 255, .65);
     --text-secondary: rgba(255, 255, 255, .45);
     --text-disable: rgba(255, 255, 255, .30);
-    --text-link: #177DDCD9;
+    --text-link: #177DDC;
 
     /* table borders and dividers */
     --border-div-1: #434343;
     --border-div-2: #303030; 
 
     /* Friendly dark mode colors */
-    --color-red: #d32029D9;
-    --color-volcano: #d84a1bD9;
-    --color-orange: #d87a16D9;
-    --color-gold: #d89614D9;
-    --color-yellow: #d8bd14D9;
-    --color-lime: #8bbb11D9;
-    --color-green: #49aa19D9;
-    --color-cyan: #13a8a8D9;
-    --color-blue: #177ddcD9;
-    --color-geekblue: #2b4acbD9;
-    --color-purple: #642ab5D9;
-    --color-magenta: #cb2b83D9;
+    --color-red: #d32029;
+    --color-volcano: #d84a1b;
+    --color-orange: #d87a16;
+    --color-gold: #d89614;
+    --color-yellow: #d8bd14;
+    --color-lime: #8bbb11;
+    --color-green: #49aa19;
+    --color-cyan: #13a8a8;
+    --color-blue: #177ddc;
+    --color-geekblue: #2b4acb;
+    --color-purple: #642ab5;
+    --color-magenta: #cb2b83;
 }
 
 .Root {
@@ -148,6 +148,12 @@ body {
                 .Ov-div-table-title {
                     padding: 0px 0px 24px 0px
                 }
+    Table {
+        box-shadow: 0px 1px 2px -2px rgba(0,0,0,.64),
+        0px 3px 6px 0px rgba(0, 0, 0, .48),
+        0px 5px 12px 4px rgba(0, 0, 0, .36);
+
+    }
             
     @media only screen and (max-width: 888px) {
         .Ov-cont {

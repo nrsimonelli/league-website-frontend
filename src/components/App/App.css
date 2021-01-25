@@ -154,6 +154,17 @@ body {
         0px 5px 12px 4px rgba(0, 0, 0, .36);
 
     }
+
+    .Link-league {
+        color: var(--color-blue);
+        cursor: pointer;
+        
+    }
+
+    .Link-player {
+        color: var(--color-cyan);
+        cursor: pointer;
+    }
             
     @media only screen and (max-width: 888px) {
         .Ov-cont {

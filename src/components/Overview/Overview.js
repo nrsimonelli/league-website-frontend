@@ -124,6 +124,14 @@ class Overview extends Component {
     console.log(`selected ${value}`);
   }
 
+  navToLeague = () => {
+    this.props.history.push('/league');
+  }
+
+  navToPlayer = () => {
+    this.props.history.push('/player');
+  }
+
   render() {
     return (
       <div className='Ov-root' >
@@ -144,10 +152,14 @@ class Overview extends Component {
           <Divider />
           <div className='Ov-div-table'>
             <div className='Ov-div-table-title'>
-            <div>League X</div>
+            <div className='Link-league' onClick={this.navToLeague}>League X</div>
             </div>
             <Table pagination={false} dataSource={fakeData} size='middle' >
-              <Column title='Player' dataIndex='playerName' key='playerName' />
+              <Column 
+                title='Player'  
+                dataIndex='playerName' 
+                key='playerName' 
+                render={(key, record) => (<div className='Link-player' onClick={this.navToPlayer}>{record.playerName}</div>)} />
               <Column title='Played' dataIndex='gamesPlayed' key='gamesPlayed' />
               <Column title='Points' dataIndex='pointScored' key='pointScored' />
             </Table>

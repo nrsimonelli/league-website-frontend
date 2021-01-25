@@ -148,11 +148,11 @@ class Overview extends Component {
         </div>
         <div className='Ov-cont'>
         <div className='Ov-div'>
-          <div className='Ov-div-title'>Division title</div>
+          <div className='Ov-div-title Title'>Division title</div>
           <Divider />
           <div className='Ov-div-table'>
             <div className='Ov-div-table-title'>
-            <div className='Link-league' onClick={this.navToLeague}>League X</div>
+            <div className='Link-league Sub' onClick={this.navToLeague}>League X</div>
             </div>
             <Table pagination={false} dataSource={fakeData} size='middle' >
               <Column 

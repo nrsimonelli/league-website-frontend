@@ -130,10 +130,9 @@ class Overview extends Component {
         <div className='Ov-cont'>
           <div className='Ov-div'>
             <div className='Ov-div-select'>
-              <Select defaultValue='Season 2' onChange={this.handleChange}>
+              <Select className='Season-select' defaultValue='Season 2' onChange={this.handleChange}>
                <Option value='Season 2'>Season 2</Option>
                <Option value='Season 1'>Season 1</Option>
-
               </Select>
             </div>
           </div>

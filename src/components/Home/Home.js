@@ -11,7 +11,7 @@ class Home extends Component {
   }
 
   navToStandings = () => {
-    this.props.history.push('/standings');
+    this.props.history.push('/season');
   }
 
   logInClicked = () => {

@@ -1,16 +1,24 @@
-@import '~antd/dist/antd.css';
+@import '~antd/dist/antd.dark.css';
 
 :root {
+    /* Background elevation levels */
     --dark-elv-0: #000000;
     --dark-elv-1: #141414;
     --dark-elv-2: #1F1F1F;
+    --dark-elv-3: #262626;
+
+    /* Text types */
     --text-title: rgba(255, 255, 255, .85);
     --text-primary: rgba(255, 255, 255, .65);
     --text-secondary: rgba(255, 255, 255, .45);
     --text-disable: rgba(255, 255, 255, .30);
-    --text-link: #177DDC;
+    --text-link: #177DDCD9;
+
+    /* table borders and dividers */
     --border-div-1: #434343;
     --border-div-2: #303030; 
+
+    /* Friendly dark mode colors */
     --color-red: #d32029D9;
     --color-volcano: #d84a1bD9;
     --color-orange: #d87a16D9;
@@ -32,8 +40,8 @@
     align-items: center;
     margin: 0;
     padding: 0;
-    background-color: var(--dark-elv-0);
-    color: var(--text-primary);
+    /* background-color: var(--dark-elv-0);
+    color: var(--text-primary); */
 }
 
 body {
@@ -42,13 +50,14 @@ body {
 }
   
 .Nav {
-    background-color: #282c34;
+    background-color: var(--dark-elv-2);
+    color: var(--text-title);
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-around;
     font-size: calc(10px + 2vmin);
-    color: white;
+    
     width: 100vw;
     height: 10vh;
 }
@@ -84,15 +93,12 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
-    background-color: rgba(0,0,0,.5);
-    color: white;
     width: 100vw;
     height: 10vh;
     font-size: 16px;
 }
 
 .Ov-root {
-    border: 1px solid blue;
     width: 100vw;
     display: flex;
     flex-direction: column;
@@ -121,7 +127,6 @@ body {
                 width: 100%;
                 padding: 0px 0px 0px 24px;
                 margin-top: 24px;
-
             }
             .Ov-div-title {
                 width: 100%;
@@ -135,6 +140,7 @@ body {
                 /* height: 400px; */
                 min-width: 400px;
                 padding: 0px 24px 48px 24px;
+                
                 
             }
                 .Ov-div-table-title {

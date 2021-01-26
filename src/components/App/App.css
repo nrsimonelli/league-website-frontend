@@ -45,6 +45,7 @@
     margin: 0;
     padding: 0;
     font-family: inherit;
+    background-color: var(--dark-elv-1);
 
 }
 
@@ -54,7 +55,7 @@ body {
 }
   
 .Nav {
-    background-color: var(--dark-elv-2);
+    background-color: var(--dark-elv-3);
     color: var(--text-title);
     display: flex;
     flex-direction: row;
@@ -109,16 +110,18 @@ body {
     flex-direction: column;
     flex-wrap: wrap;
     align-items: center;
+    min-height: 100vh;
+    padding-bottom: 48px;
 
 }
     
     .Ov-cont {
         
-        background-color: var(--dark-elv-1);
+        background-color: var(--dark-elv-2);
         height: 100%;
         max-width: 1650px;
         width: calc(100% - 100px);
-        margin-top: 24px;
+        margin: 24px 0px 0px 0px;
 
     }
         .Ov-div {
@@ -134,7 +137,7 @@ body {
                 margin: 24px 0px 24px 0px;
             }
                 .Season-select {
-                    background-color: var(--dark-elv-2);
+                    background-color: var(--dark-elv-1);
                 }
             .Ov-div-title {
                 width: 100%;
@@ -159,9 +162,12 @@ Table {
     0px 3px 6px 0px rgba(0, 0, 0, .48),
     0px 5px 12px 4px rgba(0, 0, 0, .36);
 }
-/* .ant-table-thead > tr >th {
-   
-} */
+.ant-table-thead > tr >th {
+   background-color: var(--dark-elv-3);
+}
+.ant-table-tbody > tr {
+    background-color: var(--dark-elv-1);
+ }
 
 /* League Component */
 .League-root {
@@ -170,6 +176,8 @@ Table {
     flex-direction: column;
     flex-wrap: wrap;
     align-items: center;
+    min-height: 100vh;
+    padding-bottom: 48px;
 }
     .League-cont {
         background-color: var(--dark-elv-2);

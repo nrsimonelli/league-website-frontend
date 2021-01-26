@@ -76,7 +76,7 @@ body {
     width: 100vw;
 
     background-image: url('../../images/League.jpg');
-    background-position: top;
+    background-position: top right;
     background-size: cover;
 }
 
@@ -102,6 +102,7 @@ body {
     font-size: 16px;
 }
 
+/* Overview Component */
 .Ov-root {
     width: 100vw;
     display: flex;
@@ -116,7 +117,7 @@ body {
         background-color: var(--dark-elv-1);
         height: 100%;
         max-width: 1650px;
-        width: 90vw;
+        width: calc(100% - 100px);
         margin-top: 24px;
 
     }
@@ -144,8 +145,6 @@ body {
             
             
             .Ov-div-table {
-                /* border: 1px solid purple; */
-                /* height: 400px; */
                 min-width: 400px;
                 padding: 0px 24px 48px 24px;
                 
@@ -161,31 +160,60 @@ body {
 
     }
 
-    .Link-league {
-        color: var(--color-blue);
-        cursor: pointer;
-        
+/* League Component */
+.League-root {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+}
+    .League-cont {
+        border: 1px solid var(--color-magenta);
+        background-color: var(--dark-elv-2);
+        height: 100%;
+        max-width: 1650px;
+        width: calc(100% - 100px);
+        margin-top: 24px;
     }
+        .League-div {
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: row;
+        }
 
-    .Link-player {
-        color: var(--color-cyan);
-        cursor: pointer;
-    }
 
-    .Title {
-        color: var(--text-title);
-        font-size: 20px;
-    }
-    .Sub {
-        font-size: 16px;
-    }
+
+
+.Link-league {
+    color: var(--color-blue);
+    cursor: pointer;
+    
+}
+
+.Link-player {
+    color: var(--color-cyan);
+    cursor: pointer;
+}
+
+.Title {
+    color: var(--text-title);
+    font-size: 20px;
+}
+.Sub {
+    font-size: 16px;
+}
             
-    @media only screen and (max-width: 888px) {
-        .Ov-cont {
-            width: 100%;
-        }
-        .Ov-div-table {
-            width: 100%;
-        }
+@media only screen and (max-width: 888px) {
+    .Ov-cont {
+        width: 100%;
     }
+    .Ov-div-table {
+        width: 100%;
+    }
+    .League-cont {
+        width: 100%;
+    }
+}
     

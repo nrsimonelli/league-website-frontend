@@ -200,21 +200,52 @@ Table {
                 padding: 0px 24px 48px 24px;
                 width: 100%;
             }
+/* Player Component */
+.Player-root {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    min-height: 100vh;
+    padding-bottom: 48px;
+}
+    .Player-cont {
+        background-color: var(--dark-elv-2);
+        height: 100%;
+        max-width: 1650px;
+        width: calc(100% - 100px);
+        margin-top: 24px;
+    }
+        .Player-div {
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: row;
+        }
+            .Player-div-title {
+                width: 100%;
+                padding: 24px 0px 0px 24px;
+            }
+            .Player-div-table {
+                padding: 0px 24px 48px 24px;
+                width: 100%;
+            }
 
 
 
 
-
-.Link-league {
-    color: var(--color-blue);
+.Link {
     cursor: pointer;
-    
 }
 
-.Link-player {
+.color-player {
     color: var(--color-cyan);
-    cursor: pointer;
 }
+.color-league {
+    color: var(--color-blue);
+}
+
 
 .Title {
     color: var(--text-title);

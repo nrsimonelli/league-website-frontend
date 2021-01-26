@@ -152,7 +152,7 @@ class Overview extends Component {
           <Divider />
           <div className='Ov-div-table'>
             <div className='Ov-div-table-title'>
-            <div className='Link-league Sub' onClick={this.navToLeague}>League X</div>
+            <div className='Link color-league Sub' onClick={this.navToLeague}>League X</div>
             </div>
             <Table pagination={false} dataSource={fakeData} size='middle' >
               <Column 
@@ -161,7 +161,7 @@ class Overview extends Component {
                 key='playerName' 
                 render={(key, record) => (
                   <div 
-                    className='Link-player' 
+                    className='Link color-player' 
                     onClick={this.navToPlayer}>
                     {record.playerName}
                   </div>

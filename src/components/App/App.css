@@ -150,15 +150,18 @@ body {
                 
                 
             }
-                .Ov-div-table-title {
-                    padding: 0px 0px 24px 0px
-                }
-    Table {
-        box-shadow: 0px 1px 2px -2px rgba(0,0,0,.64),
-        0px 3px 6px 0px rgba(0, 0, 0, .48),
-        0px 5px 12px 4px rgba(0, 0, 0, .36);
+            .Ov-div-table-title {
+                padding: 0px 0px 24px 0px
+            }
 
-    }
+Table {
+    box-shadow: 0px 1px 2px -2px rgba(0,0,0,.64),
+    0px 3px 6px 0px rgba(0, 0, 0, .48),
+    0px 5px 12px 4px rgba(0, 0, 0, .36);
+}
+/* .ant-table-thead > tr >th {
+   
+} */
 
 /* League Component */
 .League-root {
@@ -169,7 +172,6 @@ body {
     align-items: center;
 }
     .League-cont {
-        border: 1px solid var(--color-magenta);
         background-color: var(--dark-elv-2);
         height: 100%;
         max-width: 1650px;
@@ -182,6 +184,15 @@ body {
             flex-wrap: wrap;
             flex-direction: row;
         }
+            .League-div-title {
+                width: 100%;
+                padding: 24px 0px 0px 24px;
+            }
+            .League-div-table {
+                padding: 0px 24px 48px 24px;
+                width: 100%;
+            }
+
 
 
 

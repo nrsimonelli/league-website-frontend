@@ -10,16 +10,20 @@ class Nav extends Component {
 
   render() {
     return (
-        <div className="Nav">
-          <div className='Link' onClick={this.navToHome}>
-            title
+        <div className="Nav-root">
+          <div className='Nav-cont'>
+            <div className='Link' onClick={this.navToHome}>
+              scythe league
+            </div>
+            <div className='Link'>
+              icon/link container
+            </div>
+            <div className='Link'>
+              log-out
+            </div>
           </div>
-          <div className='Link'>
-            icon/link container
-          </div>
-          <div className='Link'>
-            log-out
-          </div>
+
+          
         </div> 
     );
   }

@@ -54,17 +54,23 @@ body {
     padding: 0;
 }
   
-.Nav {
+.Nav-root {
     background-color: var(--dark-elv-3);
     color: var(--text-title);
+    font-size: calc(10px + 2vmin);
+    width: 100vw;
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.Nav-cont {
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-around;
-    font-size: calc(10px + 2vmin);
-    
-    width: 100vw;
-    height: 10vh;
+    justify-content: space-between;
+    max-width: 1650px;
+    width: calc(100% - 100px);
 }
 
 .Home {

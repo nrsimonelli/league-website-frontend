@@ -11,13 +11,13 @@ class Nav extends Component {
   render() {
     return (
         <div className="Nav">
-          <div onClick={this.navToHome}>
+          <div className='Link' onClick={this.navToHome}>
             title
           </div>
-          <div>
+          <div className='Link'>
             icon/link container
           </div>
-          <div>
+          <div className='Link'>
             log-out
           </div>
         </div> 

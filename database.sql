@@ -46,5 +46,6 @@ CREATE TABLE game_player (
   mat VARCHAR(80),
   bid INT,
   score INT,
+  round INT,
   rank INT
 );

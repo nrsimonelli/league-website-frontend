@@ -1,4 +1,7 @@
 import React, {Component} from 'react';
+import { Divider, Table } from 'antd';
+
+const { Column } = Table;
 
 class Player extends Component {
 
@@ -12,23 +15,10 @@ class Player extends Component {
           </div>
           <Divider />
           <div className='Player-div-table'>
-            <Table>
-            
-            </Table>
-          </div>
-            
-        </div>
-      </div>
-      <div className='Player-cont'>
-        <div className='Player-div'>
-          <div className='Player-div-title Title'>
-            More data
-          </div>
-          <Divider />
-          <div className='Player-div-table'>
-            <Table>
-            
-            </Table>
+          <Table>
+          <Column title='Feature Coming Soon' />
+
+          </Table>
           </div>
             
         </div>

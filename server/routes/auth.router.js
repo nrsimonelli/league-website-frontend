@@ -1,14 +1,14 @@
 const express = require('express');
-
+const passport = require('passport');
 const router = express.Router();
 
-router.get( '/discord', passport.authenticate( 'discord' ));
+router.get('/', passport.authenticate('discord'));
 
-router.get( 'discord/redirect', passport.authenticate( 'discord' ), (req, res) => {
+router.get('/login', passport.authenticate('discord'), (req, res) => {
     res.send(200);
 });
 
-router.get('/', (req, res) => {
+router.get('/login', (req, res) => {
     if (req.user) {
         res.send(req.user);
     } else {

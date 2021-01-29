@@ -3,6 +3,7 @@ require("dotenv").config();
 
 const app = express();
 const bodyParser = require("body-parser");
+const sessionMiddleware = require("./modules/session-middleware");
 
 const passport = require("./strategies/discord.strategy");
 
@@ -25,7 +26,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // Routes
-app.use('/api/auth', authRouter);
+app.use('/auth', authRouter);
 
 
 
@@ -33,7 +34,7 @@ app.use('/api/auth', authRouter);
 app.use(express.static("build"));
 
 // App Set //
-const PORT = process.env.PORT || 4000;
+const PORT = process.env.PORT || 5000;
 
 /** Listen * */
 app.listen(PORT, () => {

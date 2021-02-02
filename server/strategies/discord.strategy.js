@@ -18,6 +18,9 @@ passport.deserializeUser((discordId, done) => {
             // user found
             done(null, user);
         }
+    }).catch((err) => {
+        console.log('error in deserialize', err);
+        done(err, null);
     })
     
 })
@@ -34,20 +37,24 @@ passport.use(
         console.log( id, username, discriminator, avatar, guilds );
         console.log('hello');
 
-        pool.query('SELECT * FROM "user" WHERE discordId = $1;', [profile.id])
-        .then((result) => {
-            const user = result && result.rows && result.rows[0];
-            console.log('in .then, user:', user);
-            if (user) {
-                done(null, user);
-            } else {
-                const newUser = pool.query(`INSERT INTO "user" ("discordId", "discordTag") VALUES ($1, $2);`, [profile.id, profile.username])
-                done(null, newUser); 
-            }
-        }).catch((err) => {
-            console.log('error in strategy', err);
-            done(err, null);
-        })
+        try  {
+            pool.query('SELECT * FROM "user" WHERE discordId = $1;', [id])
+            .then((result) => {
+                const user = result && result.rows && result.rows[0];
+                console.log('in .then, user:', user);
+                if (user) {
+                    done(null, user);
+                } else {
+                    const newUser = pool.query(`INSERT INTO "user" ("discordId", "discordTag", "avatar", "guilds") VALUES ($1, $2, $3, $4);`, [profile.id, `${profile.username}#${profile.discriminator}`, profile.avatar, profile.guilds])
+                    done(null, newUser); 
+                }
+            })
+
+        } catch {
+            console.log('error in passport', err);
+            return done (err, null);
+        }
+        
         // try {
         //     const findUser = await username.findOneAndUpdate(
         //         { discordId: id },

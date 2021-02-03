@@ -5,7 +5,7 @@ const router = express.Router();
 router.get('/', passport.authenticate('discord'));
 
 router.get('/login', passport.authenticate('discord'), (req, res) => {
-    res.send(200);
+    res.sendStatus(200);
 });
 
 router.get('/login', (req, res) => {

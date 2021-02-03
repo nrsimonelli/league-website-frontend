@@ -6,15 +6,15 @@ const pool = require('../modules/pool');
 
 passport.serializeUser((user, done) => {
     console.log('in passport serialize')
-    done(null, user.id)
+    done(null, user.discord_id)
 });
 
-passport.deserializeUser((discordId, done) => {
-    pool.query(`SELECT * FROM "user" WHERE discordId = $1`, [discordId])
+passport.deserializeUser((discord_id, done) => {
+    pool.query(`SELECT * FROM "user" WHERE discord_id = $1`, [discord_id])
     .then((result) => {
         const user = result && result.rows && result.rows[0];
 
-        if (user) {
+        if (user !== undefined) {
             // user found
             done(null, user);
         }
@@ -33,19 +33,26 @@ passport.use(
         redirectURL: process.env.DISCORD_REDIRECT,
         scope: ['identify', 'guilds'],
     }, ( accessToken, refreshToken, profile, done ) => {
-        const { id, username, discriminator, avatar, guilds } = profile;
-        console.log( id, username, discriminator, avatar, guilds );
-        console.log('hello');
-
         try  {
-            pool.query('SELECT * FROM "user" WHERE discordId = $1;', [id])
+            const { id, username, discriminator, avatar, guilds } = profile;
+            console.log( id, username, discriminator, avatar, guilds );
+
+            pool.query('SELECT * FROM "user" WHERE discord_id = $1;', [id])
             .then((result) => {
                 const user = result && result.rows && result.rows[0];
                 console.log('in .then, user:', user);
-                if (user) {
+
+                if (user !== undefined) {
+
                     done(null, user);
+
                 } else {
-                    const newUser = pool.query(`INSERT INTO "user" ("discordId", "discordTag", "avatar", "guilds") VALUES ($1, $2, $3, $4);`, [profile.id, `${profile.username}#${profile.discriminator}`, profile.avatar, profile.guilds])
+
+                    const newUser = pool.query(
+                        `INSERT INTO "user" ("discord_id", "discord_tag", "avatar", "guilds") 
+                        VALUES ($1, $2, $3, $4);`, 
+                        [profile.id, `${profile.username}#${profile.discriminator}`, profile.avatar, profile.guilds])
+
                     done(null, newUser); 
                 }
             })
@@ -55,32 +62,6 @@ passport.use(
             return done (err, null);
         }
         
-        // try {
-        //     const findUser = await username.findOneAndUpdate(
-        //         { discordId: id },
-        //         { 
-        //             discordTag: `${username}#${discriminator}`,
-        //             avatar,
-        //             guilds,
-        //         },
-        //         { new: true }
-        //     );
-        //     if (findUser) {
-        //         console.log('User found');
-        //         return done(null, findUser);
-        //     } else {
-        //         const newUser = await User.create({
-        //             discordId: id,
-        //             discordTag: `${username}#${discriminator}`,
-        //             avatar,
-        //             guilds,
-        //         });
-        //         return done(null, newUser);
-        //     }
-        // } catch (err) {
-        //     console.log(err);
-        //     return done (err, null);
-        // }
     })
 
 );

@@ -21,6 +21,7 @@ class Home extends Component {
     this.setState({
       showLogin: false
     });
+    window.location = 'http://localhost:5000/auth/login'
   }
 
   navToRecord = () => {
@@ -65,8 +66,12 @@ class Home extends Component {
             </Button>
 
             )}
-            
         </div> 
+        {this.props.user && (
+        
+        <h1 style={{ backgroundColor: 'black'}}>hello</h1>
+        
+        )}
         <Footer />
       </div>
     );

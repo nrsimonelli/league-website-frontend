@@ -1,5 +1,4 @@
 import axios from 'axios';
-import { response } from 'express';
 import { put, takeLatest } from 'redux-saga/effects';
 
 function* fetchUser() {
@@ -14,7 +13,7 @@ function* fetchUser() {
 
     yield put({ type: 'SET_USER', payload: response.data });
 
-  } catch (err) {
+  } catch (error) {
     console.log('user get request failed', error);
   }
 } 

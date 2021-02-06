@@ -9,7 +9,7 @@ class Home extends Component {
 
   componentDidMount = () => {
     console.log('Home did mount');
-    console.log('checking user props', this.props.user);
+    console.log('checking user props', this.props.state);
     
   }
 
@@ -46,18 +46,8 @@ class Home extends Component {
             >
               View
             </Button>
-            {this.state.showLogin ? (
+            {this.props.user.discord_id ? (
               <Button 
-              type='danger' 
-              shape='default'
-              size='large'
-              onClick={this.logInClicked}
-            >
-              Log in
-            </Button>
-
-            ) : (
-            <Button 
               type='danger' 
               shape='default'
               size='large'
@@ -66,11 +56,21 @@ class Home extends Component {
               Record
             </Button>
 
+            ) : (
+            <Button 
+              type='danger' 
+              shape='default'
+              size='large'
+              onClick={this.logInClicked}
+            >
+              Login with Discord
+            </Button>
+
             )}
         </div> 
-        {this.props.user && (
+        {this.props.user.discord_id && (
         
-        <h1 style={{ backgroundColor: 'black'}}>hello</h1>
+        <h1 style={{ backgroundColor: 'black'}}>hello {this.props.user.discord_tag}</h1>
         
         )}
         <Footer />

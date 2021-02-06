@@ -9,7 +9,7 @@ function* fetchUser() {
       withCredentials: true,
     }
 
-    const response = yield axios.get('/auth/', config);
+    const response = yield axios.get('/auth', config);
 
     yield put({ type: 'SET_USER', payload: response.data });
 

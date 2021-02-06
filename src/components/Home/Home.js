@@ -9,6 +9,7 @@ class Home extends Component {
 
   componentDidMount = () => {
     console.log('Home did mount');
+    console.log('checking user props', this.props.user);
     
   }
 
@@ -80,7 +81,7 @@ class Home extends Component {
 }
 
 const mapStateToProps = (state) => ({
-
+  user: state.user,
 });
 
 export default withRouter(connect(mapStateToProps)(Home));

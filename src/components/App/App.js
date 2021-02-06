@@ -19,6 +19,12 @@ import Player from '../Player/Player';
 
 class App extends Component {
 
+  componentDidMount() {
+    this.props.dispatch({
+      type: 'FETCH_USER'
+    })
+  }
+
   render() {
     return (
 

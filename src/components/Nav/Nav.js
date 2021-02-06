@@ -8,6 +8,15 @@ class Nav extends Component {
     this.props.history.push('/')
   }
 
+  logOutClicked = () => {
+    
+  }
+
+  logInClicked = () => {
+    console.log('Log in was clicked');
+    window.location = 'http://localhost:5000/auth/login'
+  }
+
   render() {
     return (
         <div className="Nav-root">
@@ -18,9 +27,19 @@ class Nav extends Component {
             <div className='Link'>
               icon/link container
             </div>
-            <div className='Link'>
-              log-out
-            </div>
+            {this.props.user.discord_tag ? (
+
+              <div className='Link'>
+                {this.props.user.discord_tag}
+              </div>
+
+            ) : (
+
+              <div className='Link' onClick={this.logInClicked}>
+              log-in with Discord
+              </div>
+
+            )}
           </div>
 
           
@@ -30,4 +49,9 @@ class Nav extends Component {
   
 }
 
-export default withRouter(connect()(Nav));
+const mapStateToProps = (state) => ({
+  user: state.user,
+});
+
+
+export default withRouter(connect(mapStateToProps)(Nav));

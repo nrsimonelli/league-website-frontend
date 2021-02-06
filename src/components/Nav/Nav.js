@@ -12,6 +12,11 @@ class Nav extends Component {
     
   }
 
+  logInClicked = () => {
+    console.log('Log in was clicked');
+    window.location = 'http://localhost:5000/auth/login'
+  }
+
   render() {
     return (
         <div className="Nav-root">
@@ -29,14 +34,12 @@ class Nav extends Component {
               </div>
 
             ) : (
-              <div className='Link' onClick={this.logOutClicked}>
-              log-out
+
+              <div className='Link' onClick={this.logInClicked}>
+              log-in with Discord
               </div>
 
             )}
-            <div className='Link'>
-              log-out
-            </div>
           </div>
 
           

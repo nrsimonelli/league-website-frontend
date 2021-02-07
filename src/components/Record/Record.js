@@ -1,42 +1,49 @@
 import React, { useState } from 'react';
-import { Modal, Button } from 'antd';
+import { Modal, Button, Select, Form, Input } from 'antd';
 
+const CustomizedForm = ({ onChange, fields }) => {
+  return (
+    <Form
+      name="global_state"
+      layout="inline"
+      fields={fields}
+      onFieldsChange={(_, allFields) => {
+        onChange(allFields);
+      }}
+    >
+      <Form.Item
+        name="username"
+        label="Username"
+        rules={[
+          {
+            required: true,
+            message: 'Username is required!',
+          },
+        ]}
+      >
+        <Input />
+      </Form.Item>
+    </Form>
+  );
+};
 
 
 
 const Record = () => {
 
-  const [isModalVisible, setIsModalVisible] = useState(false);
-
-  const showModal = () => {
-    setIsModalVisible(true);
-  };
-  
-  const handleOk = () => {
-    setIsModalVisible(false);
-  };
-  
-  const handleCancel = () => {
-    setIsModalVisible(false);
-  };
 
   return (
       <div className="Rec-root">
         <div className="Rec-cont">
-          <Button onClick={showModal}>
+          <Button>
             Record Game
           </Button>
           
-    <Modal title="Basic Modal" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
-      <p>Some contents...</p>
-      <p>Some contents...</p>
-      <p>Some contents...</p>
-      </Modal>
+          
         </div>
       
       </div> 
   );
-  
   
 }
 

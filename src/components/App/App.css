@@ -237,7 +237,28 @@ Table {
                 padding: 0px 24px 48px 24px;
                 width: 100%;
             }
+.Rec-root {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    min-height: 100vh;
+    padding-bottom: 48px;
 
+}
+    
+    .Rec-cont {
+        background-color: var(--dark-elv-2);
+        height: 100%;
+        max-width: 1650px;
+        width: calc(100% - 100px);
+        margin: 24px 0px 0px 0px;
+        border: 1px solid var(--color-blue);
+        display: flex;
+        justify-content: space-around;
+
+    }
 
 
 

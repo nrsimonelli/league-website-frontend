@@ -60,128 +60,17 @@ const GAME_PLAYER = [
  
 ]
 
-const CollectionCreateForm = ({ visible, onCreate, onCancel }) => {
-
-  const [form] = Form.useForm();
-  
-  const handleChange = (value) => {
-    console.log(`selected ${value}`);
-  }
 
   
 
-  const handleGameChange = (value) => {
-    console.log(`selected game change ${value}`);
-
-    // let filterData = GAME_PLAYER.filter(e => e.game_id === value)
-    // console.log(filterData);
-
-    form.setFieldsValue({ activeGameList: value});
-  }
-
-  return (
-    <Modal
-      visible={visible}
-      title="Open Game List"
-      okText="Create"
-      cancelText="Cancel"
-      onCancel={onCancel}
-      onOk={() => {
-        form
-          .validateFields()
-          .then((values) => {
-            form.resetFields();
-            onCreate(values);
-          })
-          .catch((info) => {
-            console.log('Validate Failed:', info);
-          });
-      }}
-    >
-      <Form
-        form={form}
-        layout="vertical"
-        name="form_in_modal"
-      >
-        <Form.Item name="activeGameList" rules={[{ required: true, message: 'Missing game' }]} >
-          <Select placeholder='Select Game' onChange={handleGameChange} options={GAMES.div_name}> 
-            {(GAMES.map(game => (
-              <Option key={game.id} value={game.id}>{game.div_name}, {game.sub_name}</Option>
-            )))}
-
-          </Select>
-        </Form.Item>
-        <Form.Item shouldUpdate={(prevValues, curValues) => prevValues.activeGameList !== curValues.activeGameList}>
-          {({ getFieldValue }) =>{
-
-            const current_id = getFieldValue('activeGameList')
-            const selectedGame = GAME_PLAYER.filter(e => e.game_id === current_id)
-
-            return (
-              <div>
-              {(selectedGame.map(player => (
-                <Form.Item key={player.key} >
-                  <Input label='Player' defaultValue={player.username}/>
-                  <Select label='Faction' defaultValue={player.faction} options={FACTIONS} />
-                  <Select label='Mat' defaultValue={player.mat} options={MATS} />
-                  <InputNumber label='Score'min={0} max={200} defaultValue={player.score} />
-                  
-
-                </Form.Item>
-              )))}
-              </div>
-              
-            );
-          }}
-
-        </Form.Item>
-        
-
-
-
-
-
-
-        {/* placehholder select fields */}
-        <Form.Item name="playerMat" >
-          <Select placeholder='Player Mat' options={MATS} onChange={handleChange} />
-        </Form.Item>
-        <Form.Item name="playerFaction" >
-          <Select placeholder='Player Faction' options={FACTIONS} onChange={handleChange} />
-        </Form.Item>
-        
-      </Form>
-    </Modal>
-  );
-};
-  
-
-const Record = () => {
-  const [visible, setVisible] = useState(false);
-
-  const onCreate = (values) => {
-    console.log('Received values of form: ', values);
-    setVisible(false);
-  };
+const FormTest = () => {
+ 
 
   return (
       <div className="Rec-root">
         <div className="Rec-cont">
-        <Button
-          type="primary"
-          onClick={() => {
-            setVisible(true);
-          }}
-        >
-          RecordGame
-        </Button>
-        <CollectionCreateForm
-          visible={visible}
-          onCreate={onCreate}
-          onCancel={() => {
-            setVisible(false);
-          }}
-        />
+        
+        
           
           
         </div>
@@ -191,4 +80,4 @@ const Record = () => {
   
 };
 
-export default Record;
+export default FormTest;

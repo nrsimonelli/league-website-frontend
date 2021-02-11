@@ -15,6 +15,7 @@ import Overview from '../Overview/Overview';
 import Record from '../Record/Record';
 import League from '../League/League';
 import Player from '../Player/Player';
+import FormTest from '../FormTest/FormTest';
 
 
 class App extends Component {
@@ -51,6 +52,11 @@ class App extends Component {
                 exact
                 path="/player"
                 component={Player}
+              />
+              <Route
+                exact
+                path="/formtest"
+                component={FormTest}
               />
               <Route
                 exact

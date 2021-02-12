@@ -60,7 +60,7 @@ const GAME_PLAYER = [
  
 ]
 
-const CollectionCreateForm = ({ visible, onCreate, onCancel }) => {
+const CreateGameForm = ({ visible, onCreate, onCancel }) => {
 
   const [form] = Form.useForm();
   
@@ -68,22 +68,20 @@ const CollectionCreateForm = ({ visible, onCreate, onCancel }) => {
     console.log(`selected ${value}`);
   }
 
-  
-
-  const handleGameChange = (value) => {
+  const onGameChange = (value) => {
     console.log(`selected game change ${value}`);
 
     // let filterData = GAME_PLAYER.filter(e => e.game_id === value)
     // console.log(filterData);
 
-    form.setFieldsValue({ activeGameList: value});
+    // form.setFieldsValue({ activeGameList: value});
   }
 
   return (
     <Modal
       visible={visible}
-      title="Open Game List"
-      okText="Create"
+      title="Record Game"
+      okText="Submit"
       cancelText="Cancel"
       onCancel={onCancel}
       onOk={() => {
@@ -101,17 +99,40 @@ const CollectionCreateForm = ({ visible, onCreate, onCancel }) => {
       <Form
         form={form}
         layout="vertical"
-        name="form_in_modal"
+        name="record-game-form"
       >
-        <Form.Item name="activeGameList" rules={[{ required: true, message: 'Missing game' }]} >
-          <Select placeholder='Select Game' onChange={handleGameChange} options={GAMES.div_name}> 
+        <Form.Item name="activeGameList" label='Games' rules={[{ required: true, message: 'Missing game' }]} >
+          <Select placeholder='Select Game' onChange={onGameChange} allowClear > 
             {(GAMES.map(game => (
               <Option key={game.id} value={game.id}>{game.div_name}, {game.sub_name}</Option>
             )))}
 
           </Select>
         </Form.Item>
-        <Form.Item shouldUpdate={(prevValues, curValues) => prevValues.activeGameList !== curValues.activeGameList}>
+        <Form.Item
+          noStyle
+          shouldUpdate={(prevValues, currentValues) => prevValues.activeGameList !== currentValues.activeGameList}
+        >
+          {({ getFieldValue }) => {
+            return getFieldValue('activeGameList') && (
+              <div>
+              <Form.Item>
+                <InputNumber placeholder="Rounds" min={8} max={40}></InputNumber>
+              </Form.Item>
+
+              <Form.Item label="Player">
+                <Input placeholder="Username" />
+                <Select placeholder="Faction" options={FACTIONS} />
+                <Select placeholder="Mat" options={MATS} />
+                <InputNumber placeholder="Score" min={0} max={200} />
+              </Form.Item>
+              </div>
+            )
+          }}
+
+        </Form.Item>
+
+        {/* <Form.Item shouldUpdate={(prevValues, curValues) => prevValues.activeGameList !== curValues.activeGameList}>
           {({ getFieldValue }) =>{
 
             const current_id = getFieldValue('activeGameList')
@@ -134,7 +155,7 @@ const CollectionCreateForm = ({ visible, onCreate, onCancel }) => {
             );
           }}
 
-        </Form.Item>
+        </Form.Item> */}
         
 
 
@@ -175,7 +196,7 @@ const Record = () => {
         >
           RecordGame
         </Button>
-        <CollectionCreateForm
+        <CreateGameForm
           visible={visible}
           onCreate={onCreate}
           onCancel={() => {

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Modal, Button, Select,  Form, Input, InputNumber } from 'antd';
+import { Modal, Button, Select,  Form, Space, Input, InputNumber } from 'antd';
 
 const { Option } = Select;
 
@@ -35,28 +35,28 @@ const GAMES = [
 ]
 
 const GAME_PLAYER = [
-  {game_id: '1', username: 'JoyD1v', faction: '', mat: '', score: '', round: '', bid: 'false', bid_total: ''},
-  {game_id: '1', username: 'onyablock', faction: 'Saxony', mat: 'Patriotic', score: 60, round: '', bid: 'false', bid_total: ''},
-  {game_id: '1', username: 'bbScythe', faction: '', mat: '', score: '', round: '', bid: 'false', bid_total: ''},
-  {game_id: '1', username: 'dizy', faction: '', mat: '', score: '', round: '', bid: 'false', bid_total: ''},
-  {game_id: '2', username: 'Nevic', faction: 'Polania', mat: 'Industrial', score: 55, round: '', bid: 'false', bid_total: ''},
-  {game_id: '2', username: 'Feast', faction: null, mat: null, score: null, round: '', bid: 'false', bid_total: ''},
-  {game_id: '2', username: 'Der', faction: '', mat: '', score: '', round: '', bid: 'false', bid_total: ''},
-  {game_id: '2', username: 'FOMOF', faction: '', mat: '', score: '', round: '', bid: 'false', bid_total: ''},
-  {game_id: '3', username: 'Sniff', faction: '', mat: '', score: '', round: '', bid: 'false', bid_total: ''},
-  {game_id: '3', username: 'ammorning', faction: 'Saxony', mat: 'Patriotic', score: '', round: '', bid: 'false', bid_total: ''},
-  {game_id: '3', username: 'Germy', faction: '', mat: '', score: '', round: '', bid: 'false', bid_total: ''},
-  {game_id: '3', username: 'caitlin', faction: '', mat: '', score: '', round: '', bid: 'false', bid_total: ''},
-  {game_id: '4', username: 'JoyD1v', faction: 'Crimea', mat: 'Engineering', score: '', round: '', bid: 'false', bid_total: ''},
-  {game_id: '4', username: 'Feast', faction: null, mat: null, score: null, round: '', bid: 'false', bid_total: ''},
-  {game_id: '4', username: 'N00dles', faction: 'Albion', mat: 'Mechanical', score: 30, round: '', bid: 'false', bid_total: ''},
-  {game_id: '5', username: 'FOMOF', faction: 'Rusviet', mat: 'Militant', score: 75, round: '', bid: 'true', bid_total: 30},
-  {game_id: '5', username: 'Nevic', faction: null, mat: null, score: null, round: '', bid: 'true', bid_total: 5},
-  {game_id: '5', username: 'Der', faction: 'Togawa', mat: 'Industrial', score: 50, round: '', bid: 'true', bid_total: 0},
-  {game_id: '6', username: 'Joy', faction: null, mat: null, score: null, round: '', bid: 'false', bid_total: ''},
-  {game_id: '6', username: 'lucky', faction: '', mat: '', score: '', round: '', bid: 'false', bid_total: ''},
-  {game_id: '7', username: 'Feast', faction: '', mat: '', score: '', round: '', bid: 'false', bid_total: ''},
-  {game_id: '7', username: 'NAOTO_HON', faction: '', mat: '', score: '', round: '', bid: 'false', bid_total: ''},
+  {game_id: '1', player_id: '1', username: 'JoyD1v', faction: '', mat: '', score: '', round: '', bid: 'false', bid_total: ''},
+  {game_id: '1', player_id: '2', username: 'runningtrumpet', faction: 'Saxony', mat: 'Patriotic', score: 60, round: '', bid: 'false', bid_total: ''},
+  {game_id: '1', player_id: '3', username: 'bbScythe', faction: '', mat: '', score: '', round: '', bid: 'false', bid_total: ''},
+  {game_id: '1', player_id: '4', username: 'dizy', faction: '', mat: '', score: '', round: '', bid: 'false', bid_total: ''},
+  {game_id: '2', player_id: '5', username: 'Nevic', faction: 'Polania', mat: 'Industrial', score: 55, round: '', bid: 'false', bid_total: ''},
+  {game_id: '2', player_id: '6', username: 'Feast', faction: null, mat: null, score: null, round: '', bid: 'false', bid_total: ''},
+  {game_id: '2', player_id: '7', username: 'Der', faction: '', mat: '', score: '', round: '', bid: 'false', bid_total: ''},
+  {game_id: '2', player_id: '8', username: 'FOMOF', faction: '', mat: '', score: '', round: '', bid: 'false', bid_total: ''},
+  {game_id: '3', player_id: '9', username: 'Sniff', faction: '', mat: '', score: '', round: '', bid: 'false', bid_total: ''},
+  {game_id: '3', player_id: '10', username: 'ammorning', faction: 'Saxony', mat: 'Patriotic', score: '', round: '', bid: 'false', bid_total: ''},
+  {game_id: '3', player_id: '11', username: 'Germy', faction: '', mat: '', score: '', round: '', bid: 'false', bid_total: ''},
+  {game_id: '3', player_id: '12', username: 'caitlin', faction: '', mat: '', score: '', round: '', bid: 'false', bid_total: ''},
+  {game_id: '4', player_id: '1', username: 'JoyD1v', faction: 'Crimea', mat: 'Engineering', score: '', round: '', bid: 'false', bid_total: ''},
+  {game_id: '4', player_id: '6', username: 'Feast', faction: null, mat: null, score: null, round: '', bid: 'false', bid_total: ''},
+  {game_id: '4', player_id: '13', username: 'N00dles', faction: 'Albion', mat: 'Mechanical', score: 30, round: '', bid: 'false', bid_total: ''},
+  {game_id: '5', player_id: '8', username: 'FOMOF', faction: 'Rusviet', mat: 'Militant', score: 75, round: '', bid: 'true', bid_total: 30},
+  {game_id: '5', player_id: '5', username: 'Nevic', faction: null, mat: null, score: null, round: '', bid: 'true', bid_total: 5},
+  {game_id: '5', player_id: '7', username: 'Der', faction: 'Togawa', mat: 'Industrial', score: 50, round: '', bid: 'true', bid_total: 0},
+  {game_id: '6', player_id: '1', username: 'JoyD1v', faction: null, mat: null, score: null, round: '', bid: 'false', bid_total: ''},
+  {game_id: '6', player_id: '14', username: 'lucky', faction: '', mat: '', score: '', round: '', bid: 'false', bid_total: ''},
+  {game_id: '7', player_id: '6', username: 'Feast', faction: '', mat: '', score: '', round: '', bid: 'false', bid_total: ''},
+  {game_id: '7', player_id: '15', username: 'NAOTO_HON', faction: '', mat: '', score: '', round: '', bid: 'false', bid_total: ''},
  
 ]
 
@@ -81,6 +81,7 @@ const CreateGameForm = ({ visible, onCreate, onCancel }) => {
     <Modal
       visible={visible}
       title="Record Game"
+      centered
       okText="Submit"
       cancelText="Cancel"
       onCancel={onCancel}
@@ -95,14 +96,19 @@ const CreateGameForm = ({ visible, onCreate, onCancel }) => {
             console.log('Validate Failed:', info);
           });
       }}
+      width={700}
+      
     >
       <Form
+        
         form={form}
-        layout="vertical"
+        layout="horizontal"
         name="record-game-form"
+        colon={false}
+        
       >
-        <Form.Item name="activeGameList" label='Games' rules={[{ required: true, message: 'Missing game' }]} >
-          <Select placeholder='Select Game' onChange={onGameChange} allowClear > 
+        <Form.Item name="activeGameList" label='Games' rules={[{ required: true, message: 'Missing game' }]}  labelCol={{ span: 5 }} labelAlign="left" >
+          <Select placeholder='Select Game' onChange={onGameChange} style={{ width: 256 }} allowClear > 
             {(GAMES.map(game => (
               <Option key={game.id} value={game.id}>{game.div_name}, {game.sub_name}</Option>
             )))}
@@ -114,19 +120,74 @@ const CreateGameForm = ({ visible, onCreate, onCancel }) => {
           shouldUpdate={(prevValues, currentValues) => prevValues.activeGameList !== currentValues.activeGameList}
         >
           {({ getFieldValue }) => {
+            const selectedGame = GAME_PLAYER.filter(e => e.game_id === getFieldValue('activeGameList'))
+
             return getFieldValue('activeGameList') && (
               <div>
-              <Form.Item>
-                <InputNumber placeholder="Rounds" min={8} max={40}></InputNumber>
-              </Form.Item>
+                <Form.Item label=' ' labelCol={{ span: 5 }} labelAlign="left">
+                  <InputNumber placeholder="Rounds" min={8} max={30} style={{ width: 120 }} />
+                </Form.Item>
 
-              <Form.Item label="Player">
-                <Input placeholder="Username" />
-                <Select placeholder="Faction" options={FACTIONS} />
-                <Select placeholder="Mat" options={MATS} />
-                <InputNumber placeholder="Score" min={0} max={200} />
-              </Form.Item>
+                {(selectedGame.map(player => (
+                  
+                  <Form.Item label={player.username} labelCol={{ span: 5 }} labelAlign="left" key={player.player_id}  >
+                    <Form.Item
+                      name={`${player.player_id} faction`}
+                      rules={[{ required: true }]}
+                      style={{ display: 'inline-block', margin: '0 8px 0 0' }}
+                    >
+                      <Select 
+                        placeholder="Faction"
+                        options={FACTIONS}
+                        onChange={handleChange}
+                        style={{ width: 120 }}
+                        
+                      />
+                    </Form.Item>
+                    <Form.Item
+                     name={`${player.player_id} mat`}
+                     rules={[{ required: true }]}
+                     style={{ display: 'inline-block', margin: '0 8px' }}
+                    >
+                      <Select 
+                        placeholder="Player Mat"
+                        options={MATS}
+                        onChange={handleChange}
+                        style={{ width: 120 }}
+                      />
+                    </Form.Item>
+                    <Form.Item
+                      name={`${player.player_id} score`}
+                      rules={[{ required: true }]}
+                      style={{ display: 'inline-block', margin: '0 8px' }}
+                    >
+                      <InputNumber placeholder="Score" min={0} max={200} style={{ width: 90 }} onChange={handleChange}   />
+                    </Form.Item>
+
+                    {selectedGame[0].bid === "true" ? (
+                        <Form.Item
+                          name={`${player.player_id} bid`}
+                          rules={[{ required: true }]}
+                          style={{ display: 'inline-block', margin: '0 8px' }}
+                        >
+                          
+                          <InputNumber placeholder="Bid" min={0} max={50} style={{ width: 90 }} onChange={handleChange} />
+
+                        </Form.Item>
+                      ) : 
+                      
+                        null
+                    
+                    }
+
+
+                  </Form.Item>
+                  
+                )))}
+                
+
               </div>
+              
             )
           }}
 
@@ -164,12 +225,12 @@ const CreateGameForm = ({ visible, onCreate, onCancel }) => {
 
 
         {/* placehholder select fields */}
-        <Form.Item name="playerMat" >
+        {/* <Form.Item name="playerMat" >
           <Select placeholder='Player Mat' options={MATS} onChange={handleChange} />
         </Form.Item>
         <Form.Item name="playerFaction" >
           <Select placeholder='Player Faction' options={FACTIONS} onChange={handleChange} />
-        </Form.Item>
+        </Form.Item> */}
         
       </Form>
     </Modal>

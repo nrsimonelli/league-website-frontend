@@ -74,7 +74,7 @@ const CreateGameForm = ({ visible, onCreate, onCancel }) => {
     // let filterData = GAME_PLAYER.filter(e => e.game_id === value)
     // console.log(filterData);
 
-    // form.setFieldsValue({ activeGameList: value});
+    // form.setFieldsValue({ game_id: value});
   }
 
   return (
@@ -102,13 +102,13 @@ const CreateGameForm = ({ visible, onCreate, onCancel }) => {
       <Form
         
         form={form}
-        layout="horizontal"
+        layout="vertical"
         name="record-game-form"
         colon={false}
         
       >
-        <Form.Item name="activeGameList" label='Games' rules={[{ required: true, message: 'Missing game' }]}  labelCol={{ span: 5 }} labelAlign="left" >
-          <Select placeholder='Select Game' onChange={onGameChange} style={{ width: 256 }} allowClear > 
+        <Form.Item name="game_id" label='Games' rules={[{ required: true, message: 'Missing game' }]}  labelCol={{ span: 5 }} labelAlign="left" >
+          <Select placeholder='Select Game' onChange={onGameChange} style={{ width: 248 }} allowClear > 
             {(GAMES.map(game => (
               <Option key={game.id} value={game.id}>{game.div_name}, {game.sub_name}</Option>
             )))}
@@ -117,24 +117,40 @@ const CreateGameForm = ({ visible, onCreate, onCancel }) => {
         </Form.Item>
         <Form.Item
           noStyle
-          shouldUpdate={(prevValues, currentValues) => prevValues.activeGameList !== currentValues.activeGameList}
+          shouldUpdate={(prevValues, currentValues) => prevValues.game_id !== currentValues.game_id}
         >
           {({ getFieldValue }) => {
-            const selectedGame = GAME_PLAYER.filter(e => e.game_id === getFieldValue('activeGameList'))
+            const selectedGame = GAME_PLAYER.filter(e => e.game_id === getFieldValue('game_id'))
 
-            return getFieldValue('activeGameList') && (
+            return getFieldValue('game_id') && (
               <div>
-                <Form.Item label=' ' labelCol={{ span: 5 }} labelAlign="left">
-                  <InputNumber placeholder="Rounds" min={8} max={30} style={{ width: 120 }} />
+                <Form.Item
+                  name={}
+                >
+                  <InputNumber placeholder="Rounds" min={8} max={30} style={{ width: 90 }} />
                 </Form.Item>
 
                 {(selectedGame.map(player => (
                   
-                  <Form.Item label={player.username} labelCol={{ span: 5 }} labelAlign="left" key={player.player_id}  >
+                  <Form.Item key={player.player_id}  >
+                    <Form.Item
+                      name={player.id}
+                      style={{ display: 'inline-block', margin: '0 8px 0 0' }}
+
+                    >
+                      <Input
+                        value={player.username}
+                        bordered={false}
+                        disabled
+                        style={{ color: 'var(--color-blue)', width: 120 }}
+                      >
+                      </Input>
+                    </Form.Item>
                     <Form.Item
                       name={`${player.player_id} faction`}
                       rules={[{ required: true }]}
                       style={{ display: 'inline-block', margin: '0 8px 0 0' }}
+                      
                     >
                       <Select 
                         placeholder="Faction"
@@ -192,46 +208,6 @@ const CreateGameForm = ({ visible, onCreate, onCancel }) => {
           }}
 
         </Form.Item>
-
-        {/* <Form.Item shouldUpdate={(prevValues, curValues) => prevValues.activeGameList !== curValues.activeGameList}>
-          {({ getFieldValue }) =>{
-
-            const current_id = getFieldValue('activeGameList')
-            const selectedGame = GAME_PLAYER.filter(e => e.game_id === current_id)
-
-            return (
-              <div>
-              {(selectedGame.map(player => (
-                <Form.Item key={player.key} >
-                  <Input label='Player' defaultValue={player.username}/>
-                  <Select label='Faction' defaultValue={player.faction} options={FACTIONS} />
-                  <Select label='Mat' defaultValue={player.mat} options={MATS} />
-                  <InputNumber label='Score'min={0} max={200} defaultValue={player.score} />
-                  
-
-                </Form.Item>
-              )))}
-              </div>
-              
-            );
-          }}
-
-        </Form.Item> */}
-        
-
-
-
-
-
-
-        {/* placehholder select fields */}
-        {/* <Form.Item name="playerMat" >
-          <Select placeholder='Player Mat' options={MATS} onChange={handleChange} />
-        </Form.Item>
-        <Form.Item name="playerFaction" >
-          <Select placeholder='Player Faction' options={FACTIONS} onChange={handleChange} />
-        </Form.Item> */}
-        
       </Form>
     </Modal>
   );

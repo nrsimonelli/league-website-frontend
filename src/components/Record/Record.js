@@ -120,35 +120,42 @@ const CreateGameForm = ({ visible, onCreate, onCancel }) => {
           shouldUpdate={(prevValues, currentValues) => prevValues.game_id !== currentValues.game_id}
         >
           {({ getFieldValue }) => {
+            
             const selectedGame = GAME_PLAYER.filter(e => e.game_id === getFieldValue('game_id'))
 
             return getFieldValue('game_id') && (
               <div>
                 <Form.Item
-                  name={}
+                  name={'rounds'}
+                  rules={[{ required: true, message: 'Missing rounds'}]}
                 >
                   <InputNumber placeholder="Rounds" min={8} max={30} style={{ width: 90 }} />
                 </Form.Item>
 
+
+                
                 {(selectedGame.map(player => (
                   
-                  <Form.Item key={player.player_id}  >
+                  <Form.Item 
+                    key={player.player_id} 
+                  >
                     <Form.Item
-                      name={player.id}
+                      name={['players', player.player_id, 'username']}
                       style={{ display: 'inline-block', margin: '0 8px 0 0' }}
 
                     >
                       <Input
-                        value={player.username}
+                        defaultValue={player.username}
                         bordered={false}
                         disabled
                         style={{ color: 'var(--color-blue)', width: 120 }}
                       >
+                        
                       </Input>
                     </Form.Item>
                     <Form.Item
-                      name={`${player.player_id} faction`}
-                      rules={[{ required: true }]}
+                      name={['players', player.player_id, 'faction' ]}
+                      rules={[{ required: true, message: 'Missing faction' }]}
                       style={{ display: 'inline-block', margin: '0 8px 0 0' }}
                       
                     >
@@ -161,8 +168,8 @@ const CreateGameForm = ({ visible, onCreate, onCancel }) => {
                       />
                     </Form.Item>
                     <Form.Item
-                     name={`${player.player_id} mat`}
-                     rules={[{ required: true }]}
+                     name={['players', player.player_id, 'mat' ]}
+                     rules={[{ required: true, message: 'Missing mat' }]}
                      style={{ display: 'inline-block', margin: '0 8px' }}
                     >
                       <Select 
@@ -173,8 +180,8 @@ const CreateGameForm = ({ visible, onCreate, onCancel }) => {
                       />
                     </Form.Item>
                     <Form.Item
-                      name={`${player.player_id} score`}
-                      rules={[{ required: true }]}
+                      name={['players', player.player_id, 'score' ]}
+                      rules={[{ required: true, message: 'Missing score' }]}
                       style={{ display: 'inline-block', margin: '0 8px' }}
                     >
                       <InputNumber placeholder="Score" min={0} max={200} style={{ width: 90 }} onChange={handleChange}   />
@@ -182,8 +189,8 @@ const CreateGameForm = ({ visible, onCreate, onCancel }) => {
 
                     {selectedGame[0].bid === "true" ? (
                         <Form.Item
-                          name={`${player.player_id} bid`}
-                          rules={[{ required: true }]}
+                          name={['players', player.player_id, 'bid' ]}
+                          rules={[{ required: true, message: 'Missing bid' }]}
                           style={{ display: 'inline-block', margin: '0 8px' }}
                         >
                           
@@ -201,12 +208,13 @@ const CreateGameForm = ({ visible, onCreate, onCancel }) => {
                   
                 )))}
                 
-
+                
               </div>
+            
               
             )
           }}
-
+          
         </Form.Item>
       </Form>
     </Modal>

@@ -62,15 +62,23 @@ const GAME_PLAYER = [
 
 const CreateGameForm = ({ visible, onCreate, onCancel }) => {
 
+  const [selectedFaction, setSelectedFaction] = useState([])
+
   const [form] = Form.useForm();
   
   const handleChange = (value) => {
     console.log(`selected value ${value}`);
   }
 
+  const handleFactionSelect = (value) => {
+    console.log(`selected faction, ${value}`);
+  }
+
   const onGameChange = (value) => {
     console.log(`selected game change ${value}`);
   }
+
+  const filteredFactions = FACTIONS;
 
   return (
     <Modal
@@ -157,7 +165,7 @@ const CreateGameForm = ({ visible, onCreate, onCancel }) => {
                       <Select 
                         placeholder="Faction"
                         options={FACTIONS}
-                        onChange={handleChange}
+                        onChange={handleFactionSelect}
                         style={{ width: 120 }}
                         
                       />

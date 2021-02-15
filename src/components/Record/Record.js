@@ -65,16 +65,11 @@ const CreateGameForm = ({ visible, onCreate, onCancel }) => {
   const [form] = Form.useForm();
   
   const handleChange = (value) => {
-    console.log(`selected ${value}`);
+    console.log(`selected value ${value}`);
   }
 
   const onGameChange = (value) => {
     console.log(`selected game change ${value}`);
-
-    // let filterData = GAME_PLAYER.filter(e => e.game_id === value)
-    // console.log(filterData);
-
-    // form.setFieldsValue({ game_id: value});
   }
 
   return (

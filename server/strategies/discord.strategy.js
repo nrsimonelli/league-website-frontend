@@ -44,22 +44,11 @@ passport.use(
 
                 if (user !== undefined) {
 
-                    
-
-                    // const updateUser = pool.query(
-                    //     `UPDATE "user" SET
-                    //     discord_tag = $2,
-                    //     avatar = $3,
-                    //     guilds = $4
-                    //     WHERE "discord_id" = $1;`
-                    // )
-
-                    // pool.query(updateUser, [user.discord_id, `${profile.username}#${profile.discriminator}`, profile.avatar, profile.guilds])
-                    // .then((result) => {
-                    //     console.log('result', result);
-                    // }).catch((err) => {
-                    //     console.log('err', err);
-                    // })
+                    pool.query(
+                        `UPDATE "user" SET "discord_tag" = $2, "avatar" = $3, "guilds" = $4 WHERE "discord_id" = $1;`,
+                        [user.discord_id, `${profile.username}#${profile.discriminator}`, profile.avatar, profile.guilds])
+                        
+                   
 
                     done(null, user);
 

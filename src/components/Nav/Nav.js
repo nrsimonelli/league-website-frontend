@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import { connect } from "react-redux";
-import {withRouter} from 'react-router-dom'
+import {withRouter} from 'react-router-dom';
+import { Popconfirm, message } from 'antd';
 
 class Nav extends Component {
 
@@ -9,6 +10,8 @@ class Nav extends Component {
   }
 
   logOutClicked = () => {
+    message.success('Logging out');
+    this.props.dispatch({ type: 'LOGOUT' })
     
   }
 
@@ -17,7 +20,11 @@ class Nav extends Component {
     window.location = 'http://localhost:5000/auth/login'
   }
 
+  
+
   render() {
+
+
     return (
         <div className="Nav-root">
           <div className='Nav-cont'>
@@ -30,7 +37,16 @@ class Nav extends Component {
             {this.props.user.discord_tag ? (
 
               <div className='Link'>
-                {this.props.user.discord_tag}
+                <Popconfirm
+                 title="Not you?" 
+                 okText="Log Out" 
+                 cancelText="Cancel"
+                 onConfirm={this.logOutClicked}
+                 
+                >
+                  <a href="#">{this.props.user.discord_tag}</a>
+                </Popconfirm>
+                
               </div>
 
             ) : (

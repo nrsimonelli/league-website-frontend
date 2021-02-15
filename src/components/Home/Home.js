@@ -9,7 +9,7 @@ class Home extends Component {
 
   componentDidMount = () => {
     console.log('Home did mount');
-    console.log('checking user props', this.props.state);
+    console.log('checking user props', this.props.user);
     
   }
 

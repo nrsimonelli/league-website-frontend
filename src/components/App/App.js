@@ -17,6 +17,7 @@ import League from '../League/League';
 import Player from '../Player/Player';
 
 
+
 class App extends Component {
 
   componentDidMount() {
@@ -52,6 +53,7 @@ class App extends Component {
                 path="/player"
                 component={Player}
               />
+             
               <Route
                 exact
                 path="/season"

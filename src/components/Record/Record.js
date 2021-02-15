@@ -63,6 +63,7 @@ const GAME_PLAYER = [
 const CreateGameForm = ({ visible, onCreate, onCancel }) => {
 
   const [selectedFaction, setSelectedFaction] = useState([])
+  const [excludeFaction, setExcludeFaction] = useState(FACTIONS)
 
   const [form] = Form.useForm();
   
@@ -72,13 +73,30 @@ const CreateGameForm = ({ visible, onCreate, onCancel }) => {
 
   const handleFactionSelect = (value) => {
     console.log(`selected faction, ${value}`);
+
+    setSelectedFaction(selectedFaction => [...selectedFaction, {label: value, value: value}])
+
+    filterFactions(value)
+
+    console.log('selectedFaction hook', selectedFaction);
+    
+  }
+  const filterFactions = (x) => {
+    
+    const newExList = excludeFaction.filter(e => e.value !== x)
+    const testFilter = FACTIONS.filter(b => b.value !== selectedFaction.value )
+    console.log('testFilter', testFilter);
+    
+    setExcludeFaction(newExList)
+
+    console.log('excludeFaction', excludeFaction);
   }
 
   const onGameChange = (value) => {
     console.log(`selected game change ${value}`);
   }
 
-  const filteredFactions = FACTIONS;
+  
 
   return (
     <Modal
@@ -156,20 +174,24 @@ const CreateGameForm = ({ visible, onCreate, onCancel }) => {
                         
                       </Input>
                     </Form.Item>
-                    <Form.Item
-                      name={['players', player.player_id, 'faction' ]}
-                      rules={[{ required: true, message: 'Missing faction' }]}
-                      style={{ display: 'inline-block', margin: '0 8px 0 0' }}
+
                       
-                    >
-                      <Select 
-                        placeholder="Faction"
-                        options={FACTIONS}
-                        onChange={handleFactionSelect}
-                        style={{ width: 120 }}
+                      <Form.Item
+                        name={['players', player.player_id, 'faction' ]}
+                        rules={[{ required: true, message: 'Missing faction' }]}
+                        style={{ display: 'inline-block', margin: '0 8px 0 0' }}
                         
-                      />
-                    </Form.Item>
+                      >
+                        <Select 
+                          placeholder="Faction"
+                          onChange={handleFactionSelect}
+                          style={{ width: 120 }}
+                          options={excludeFaction}
+                          
+                        />
+                          
+
+                      </Form.Item>
                     <Form.Item
                      name={['players', player.player_id, 'mat' ]}
                      rules={[{ required: true, message: 'Missing mat' }]}

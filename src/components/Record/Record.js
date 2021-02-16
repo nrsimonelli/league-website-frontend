@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Modal, Button, Select,  Form, Space, Input, InputNumber } from 'antd';
+import { Modal, Button, Select, Form, Input, InputNumber } from 'antd';
 
 const { Option } = Select;
 
@@ -14,13 +14,13 @@ const MATS = [
 ];
 
 const FACTIONS = [
-  {label: 'Crimea', value: 'Crimea'},
-  {label: 'Saxony', value: 'Saxony'},
-  {label: 'Polania', value: 'Polania'},
-  {label: 'Albion', value: 'Albion'},
-  {label: 'Nordic', value: 'Nordic'},
-  {label: 'Rusviet', value: 'Rusviet'},
-  {label: 'Togawa', value: 'Togawa'},
+  {label: 'Crimea', value: 'Crimea', disabled: false},
+  {label: 'Saxony', value: 'Saxony', disabled: false},
+  {label: 'Polania', value: 'Polania', disabled: false},
+  {label: 'Albion', value: 'Albion', disabled: false},
+  {label: 'Nordic', value: 'Nordic', disabled: false},
+  {label: 'Rusviet', value: 'Rusviet', disabled: false},
+  {label: 'Togawa', value: 'Togawa', disabled: false},
 ];
 
 const GAMES = [
@@ -64,6 +64,7 @@ const CreateGameForm = ({ visible, onCreate, onCancel }) => {
 
   const [selectedFaction, setSelectedFaction] = useState([])
   const [excludeFaction, setExcludeFaction] = useState(FACTIONS)
+  const [hiddenFaction, setHiddenFaction] = useState(FACTIONS)
 
   const [form] = Form.useForm();
   
@@ -74,7 +75,7 @@ const CreateGameForm = ({ visible, onCreate, onCancel }) => {
   const handleFactionSelect = (value) => {
     console.log(`selected faction, ${value}`);
 
-    setSelectedFaction(selectedFaction => [...selectedFaction, {label: value, value: value}])
+    setSelectedFaction(selectedFaction => [...selectedFaction, {label: value, value: value, disabled: true}])
 
     filterFactions(value)
 
@@ -84,10 +85,14 @@ const CreateGameForm = ({ visible, onCreate, onCancel }) => {
   const filterFactions = (x) => {
     
     const newExList = excludeFaction.filter(e => e.value !== x)
-    const testFilter = FACTIONS.filter(b => b.value !== selectedFaction.value )
-    console.log('testFilter', testFilter);
     
     setExcludeFaction(newExList)
+
+    const disabledFaction = hiddenFaction.map(el => el.value === x ? {...el, disabled: true } : el);
+
+    setHiddenFaction(disabledFaction)
+
+    console.log('disabled factions', disabledFaction);
 
     console.log('excludeFaction', excludeFaction);
   }
@@ -96,6 +101,10 @@ const CreateGameForm = ({ visible, onCreate, onCancel }) => {
     console.log(`selected game change ${value}`);
   }
 
+  const factionClear = (value) => {
+    console.log(`faction was cleared ${value}`);
+    
+  }
   
 
   return (
@@ -178,7 +187,6 @@ const CreateGameForm = ({ visible, onCreate, onCancel }) => {
                       
                       <Form.Item
                         name={['players', player.player_id, 'faction' ]}
-                        rules={[{ required: true, message: 'Missing faction' }]}
                         style={{ display: 'inline-block', margin: '0 8px 0 0' }}
                         
                       >
@@ -186,7 +194,9 @@ const CreateGameForm = ({ visible, onCreate, onCancel }) => {
                           placeholder="Faction"
                           onChange={handleFactionSelect}
                           style={{ width: 120 }}
-                          options={excludeFaction}
+                          options={hiddenFaction}
+                          allowClear
+                          onClear={factionClear}
                           
                         />
                           

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Modal, Button, Select,  Form, Space, Input, InputNumber } from 'antd';
+import { Modal, Button, Select,  Form, Input, InputNumber } from 'antd';
 
 const { Option } = Select;
 
@@ -70,11 +70,23 @@ const CreateGameForm = ({ visible, onCreate, onCancel }) => {
 
   const onGameChange = (value) => {
     console.log(`selected game change ${value}`);
+  }
 
-    // let filterData = GAME_PLAYER.filter(e => e.game_id === value)
-    // console.log(filterData);
+  const uniquePlayers = [...new Set(GAME_PLAYER.map(x => ({username: x.username})))]
 
-    // form.setFieldsValue({ game_id: value});
+  const updatedValues = (changedValue) => {
+    console.log('updatedValue:', changedValue);
+    console.log('uniquePlayersTEst', uniquePlayers)
+    
+  }
+
+  const initialValues = {
+    "players": {
+      "1": { username: "JOY" },
+      "2": { username: "Test" },
+      "3": { username: "Kill" },
+      "4": { username: "KillJoy" },
+    }
   }
 
   return (
@@ -100,12 +112,12 @@ const CreateGameForm = ({ visible, onCreate, onCancel }) => {
       
     >
       <Form
-        
+        onValuesChange={updatedValues}
         form={form}
         layout="vertical"
         name="record-game-form"
         colon={false}
-        
+        initialValues={initialValues}
       >
         <Form.Item name="game_id" label='Games' rules={[{ required: true, message: 'Missing game' }]}  labelCol={{ span: 5 }} labelAlign="left" >
           <Select placeholder='Select Game' onChange={onGameChange} style={{ width: 248 }} allowClear > 
@@ -142,16 +154,13 @@ const CreateGameForm = ({ visible, onCreate, onCancel }) => {
                     <Form.Item
                       name={['players', player.player_id, 'username']}
                       style={{ display: 'inline-block', margin: '0 8px 0 0' }}
-
                     >
                       <Input
-                        defaultValue={player.username}
                         bordered={false}
                         disabled
                         style={{ color: 'var(--color-blue)', width: 120 }}
-                      >
-                        
-                      </Input>
+                        // placeholder={player.username}
+                      />
                     </Form.Item>
                     <Form.Item
                       name={['players', player.player_id, 'faction' ]}

@@ -9,10 +9,6 @@ class EventList extends Component {
     console.log("eventlist mounted");
   };
 
-  state = {
-    showLogin: true,
-  };
-
   render() {
     return (
       <div className="EventList">

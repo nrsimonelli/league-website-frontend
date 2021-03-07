@@ -64,6 +64,7 @@ body {
   justify-content: center;
   position: fixed;
   top: 0;
+  z-index: 2;
 }
 .Nav-cont {
   display: flex;
@@ -85,9 +86,13 @@ body {
   margin-top: 84px;
 }
 .Home-img-cont {
+  max-width: 1140px;
+  width: 100%;
+  height: calc(100vh - 84px);
   background-image: url("../../images/League.jpg");
   background-position: top right;
   background-size: cover;
+  position: fixed;
 }
 
 .Button-cont {
@@ -95,10 +100,10 @@ body {
   flex-direction: row;
   align-items: flex-end;
   justify-content: space-around;
-  height: 50vh;
-  max-width: 1140px;
-  min-width: 400px;
-  border: 1px solid white;
+  height: calc(100vh - 168px);
+  width: 300px;
+
+  z-index: 1;
 }
 
 .Footer {
@@ -248,6 +253,10 @@ Table {
   border: 1px solid var(--color-blue);
   display: flex;
   justify-content: space-around;
+}
+.EventList {
+  border: 1px solid pink;
+  min-height: 100vh;
 }
 
 .Link {

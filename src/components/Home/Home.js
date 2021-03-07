@@ -5,6 +5,8 @@ import Footer from "../Footer/Footer";
 import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 
+import EventList from "../EventList/EventList";
+
 class Home extends Component {
   componentDidMount = () => {
     console.log("Home did mount");
@@ -34,6 +36,7 @@ class Home extends Component {
   render() {
     return (
       <div className="Home">
+        <div className="Home-img-cont"></div>
         <div className="Button-cont">
           <Button
             type="primary"
@@ -64,7 +67,7 @@ class Home extends Component {
               size="large"
               onClick={this.logInClicked}
             >
-              Login with Discord
+              Login
             </Button>
           )}
         </div>
@@ -73,6 +76,7 @@ class Home extends Component {
             hello {this.props.user.discord_tag}
           </h1>
         )}
+        <EventList />
         <Footer />
       </div>
     );

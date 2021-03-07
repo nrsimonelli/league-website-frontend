@@ -1,57 +1,42 @@
-import React, {Component} from 'react';
+import React, { Component } from "react";
 import { connect } from "react-redux";
-import {withRouter} from 'react-router-dom'
+import { withRouter } from "react-router-dom";
 
 class Nav extends Component {
-
   navToHome = () => {
-    this.props.history.push('/')
-  }
+    this.props.history.push("/");
+  };
 
-  logOutClicked = () => {
-    
-  }
+  logOutClicked = () => {};
 
   logInClicked = () => {
-    console.log('Log in was clicked');
-    window.location = 'http://localhost:5000/auth/login'
-  }
+    console.log("Log in was clicked");
+    window.location = "http://localhost:5000/auth/login";
+  };
 
   render() {
     return (
-        <div className="Nav-root">
-          <div className='Nav-cont'>
-            <div className='Link' onClick={this.navToHome}>
-              scythe league
-            </div>
-            <div className='Link'>
-              icon/link container
-            </div>
-            {this.props.user.discord_tag ? (
-
-              <div className='Link'>
-                {this.props.user.discord_tag}
-              </div>
-
-            ) : (
-
-              <div className='Link' onClick={this.logInClicked}>
-              log-in with Discord
-              </div>
-
-            )}
+      <div className="Nav-root">
+        <div className="Nav-cont">
+          <div className="Link" onClick={this.navToHome}>
+            scythe league
           </div>
-
-          
-        </div> 
+          <div className="Link">icon/link container</div>
+          {this.props.user.discord_tag ? (
+            <div className="Link">{this.props.user.discord_tag}</div>
+          ) : (
+            <div className="Link" onClick={this.logInClicked}>
+              log-in with Discord
+            </div>
+          )}
+        </div>
+      </div>
     );
   }
-  
 }
 
 const mapStateToProps = (state) => ({
   user: state.user,
 });
-
 
 export default withRouter(connect(mapStateToProps)(Nav));

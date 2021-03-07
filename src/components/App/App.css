@@ -1,301 +1,282 @@
-@import '~antd/dist/antd.dark.css';
+@import "~antd/dist/antd.dark.css";
 
 :root {
-    /* Background elevation levels */
-    --dark-elv-0: #000000;
-    --dark-elv-1: #141414;
-    --dark-elv-2: #1F1F1F;
-    --dark-elv-3: #262626;
+  /* Background elevation levels */
+  --dark-elv-0: #000000;
+  --dark-elv-1: #141414;
+  --dark-elv-2: #1f1f1f;
+  --dark-elv-3: #262626;
 
-    /* Text types */
-    --text-title: rgba(255, 255, 255, .85);
-    --text-primary: rgba(255, 255, 255, .65);
-    --text-secondary: rgba(255, 255, 255, .45);
-    --text-disable: rgba(255, 255, 255, .30);
-    --text-link: #177DDC;
+  /* Text types */
+  --text-title: rgba(255, 255, 255, 0.85);
+  --text-primary: rgba(255, 255, 255, 0.65);
+  --text-secondary: rgba(255, 255, 255, 0.45);
+  --text-disable: rgba(255, 255, 255, 0.3);
+  --text-link: #177ddc;
 
-    /* table borders and dividers */
-    --border-div-1: #434343;
-    --border-div-2: #303030; 
+  /* table borders and dividers */
+  --border-div-1: #434343;
+  --border-div-2: #303030;
 
-    /* Friendly dark mode colors */
-    --color-red: #d32029;
-    --color-volcano: #d84a1b;
-    --color-orange: #d87a16;
-    --color-gold: #d89614;
-    --color-yellow: #d8bd14;
-    --color-lime: #8bbb11;
-    --color-green: #49aa19;
-    --color-cyan: #13a8a8;
-    --color-blue: #177ddc;
-    --color-geekblue: #2b4acb;
-    --color-purple: #642ab5;
-    --color-magenta: #cb2b83;
+  /* Friendly dark mode colors */
+  --color-red: #d32029;
+  --color-volcano: #d84a1b;
+  --color-orange: #d87a16;
+  --color-gold: #d89614;
+  --color-yellow: #d8bd14;
+  --color-lime: #8bbb11;
+  --color-green: #49aa19;
+  --color-cyan: #13a8a8;
+  --color-blue: #177ddc;
+  --color-geekblue: #2b4acb;
+  --color-purple: #642ab5;
+  --color-magenta: #cb2b83;
 
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
-    'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
-    'Noto Color Emoji';
+  font-family: -apple-system, Roboto, "Helvetica Neue", Arial, "Noto Sans",
+    sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+    "Noto Color Emoji";
 }
 
 .Root {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: center;
-    margin: 0;
-    padding: 0;
-    font-family: inherit;
-    background-color: var(--dark-elv-1);
-
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  font-family: inherit;
+  background-color: var(--dark-elv-1);
 }
 
 body {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
-  
+
 .Nav-root {
-    background-color: var(--dark-elv-3);
-    color: var(--text-title);
-    font-size: calc(10px + 2vmin);
-    width: 100vw;
-    height: 10vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  background-color: var(--dark-elv-3);
+  color: var(--text-title);
+  font-size: calc(10px + 2vmin);
+  width: 100vw;
+  height: 84px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
 }
 .Nav-cont {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    max-width: 1650px;
-    width: calc(100% - 100px);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1650px;
+  width: calc(100% - 100px);
 }
 
 .Home {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    height: 90vh;
-    width: 100vw;
-
-    background-image: url('../../images/League.jpg');
-    background-position: top right;
-    background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  min-height: 100vh;
+  width: 100vw;
+  margin-top: 84px;
+}
+.Home-img-cont {
+  background-image: url("../../images/League.jpg");
+  background-position: top right;
+  background-size: cover;
 }
 
-    .Button-cont {
-        display: flex;
-        flex-direction: row;
-        align-items: flex-end;
-        justify-content: space-around;
-        height: 70%;
-        width: 200px;
-    }
-        
-
-
+.Button-cont {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: space-around;
+  height: 50vh;
+  max-width: 1140px;
+  min-width: 400px;
+  border: 1px solid white;
+}
 
 .Footer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
-    width: 100vw;
-    height: 10vh;
-    font-size: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  width: 100vw;
+  height: 10vh;
+  font-size: 16px;
 }
 
 /* Overview Component */
 .Ov-root {
-    width: 100vw;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    align-items: center;
-    min-height: 100vh;
-    padding-bottom: 48px;
-
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  min-height: 100vh;
+  padding-bottom: 48px;
 }
-    
-    .Ov-cont {
-        
-        background-color: var(--dark-elv-2);
-        height: 100%;
-        max-width: 1650px;
-        width: calc(100% - 100px);
-        margin: 24px 0px 0px 0px;
 
-    }
-        .Ov-div {
-            width: 100%;
-            display: flex;
-            flex-wrap: wrap;
-            flex-direction: row;
-           
-        }
-            .Ov-div-select {
-                width: 100%;
-                padding: 0px 0px 0px 24px;
-                margin: 24px 0px 24px 0px;
-            }
-                .Season-select {
-                    background-color: var(--dark-elv-1);
-                }
-            .Ov-div-title {
-                width: 100%;
-                padding: 24px 0px 0px 24px;
-                
+.Ov-cont {
+  background-color: var(--dark-elv-2);
+  height: 100%;
+  max-width: 1650px;
+  width: calc(100% - 100px);
+  margin: 24px 0px 0px 0px;
+}
+.Ov-div {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+.Ov-div-select {
+  width: 100%;
+  padding: 0px 0px 0px 24px;
+  margin: 24px 0px 24px 0px;
+}
+.Season-select {
+  background-color: var(--dark-elv-1);
+}
+.Ov-div-title {
+  width: 100%;
+  padding: 24px 0px 0px 24px;
+}
 
-            }
-            
-            
-            .Ov-div-table {
-                min-width: 400px;
-                padding: 0px 24px 48px 24px;
-                
-                
-            }
-            .Ov-div-table-title {
-                padding: 0px 0px 24px 0px
-            }
+.Ov-div-table {
+  min-width: 400px;
+  padding: 0px 24px 48px 24px;
+}
+.Ov-div-table-title {
+  padding: 0px 0px 24px 0px;
+}
 
 Table {
-    box-shadow: 0px 1px 2px -2px rgba(0,0,0,.64),
-    0px 3px 6px 0px rgba(0, 0, 0, .48),
-    0px 5px 12px 4px rgba(0, 0, 0, .36);
+  box-shadow: 0px 1px 2px -2px rgba(0, 0, 0, 0.64),
+    0px 3px 6px 0px rgba(0, 0, 0, 0.48), 0px 5px 12px 4px rgba(0, 0, 0, 0.36);
 }
-.ant-table-thead > tr >th {
-   background-color: var(--dark-elv-3);
+.ant-table-thead > tr > th {
+  background-color: var(--dark-elv-3);
 }
 .ant-table-tbody > tr {
-    background-color: var(--dark-elv-1);
- }
+  background-color: var(--dark-elv-1);
+}
 
 /* League Component */
 .League-root {
-    width: 100vw;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    align-items: center;
-    min-height: 100vh;
-    padding-bottom: 48px;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  min-height: 100vh;
+  padding-bottom: 48px;
 }
-    .League-cont {
-        background-color: var(--dark-elv-2);
-        height: 100%;
-        max-width: 1650px;
-        width: calc(100% - 100px);
-        margin-top: 24px;
-    }
-        .League-div {
-            width: 100%;
-            display: flex;
-            flex-wrap: wrap;
-            flex-direction: row;
-        }
-            .League-div-title {
-                width: 100%;
-                padding: 24px 0px 0px 24px;
-            }
-            .League-div-table {
-                padding: 0px 24px 48px 24px;
-                width: 100%;
-            }
+.League-cont {
+  background-color: var(--dark-elv-2);
+  height: 100%;
+  max-width: 1650px;
+  width: calc(100% - 100px);
+  margin-top: 24px;
+}
+.League-div {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+.League-div-title {
+  width: 100%;
+  padding: 24px 0px 0px 24px;
+}
+.League-div-table {
+  padding: 0px 24px 48px 24px;
+  width: 100%;
+}
 /* Player Component */
 .Player-root {
-    width: 100vw;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    align-items: center;
-    min-height: 100vh;
-    padding-bottom: 48px;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  min-height: 100vh;
+  padding-bottom: 48px;
 }
-    .Player-cont {
-        background-color: var(--dark-elv-2);
-        height: 100%;
-        max-width: 1650px;
-        width: calc(100% - 100px);
-        margin-top: 24px;
-    }
-        .Player-div {
-            width: 100%;
-            display: flex;
-            flex-wrap: wrap;
-            flex-direction: row;
-        }
-            .Player-div-title {
-                width: 100%;
-                padding: 24px 0px 0px 24px;
-            }
-            .Player-div-table {
-                padding: 0px 24px 48px 24px;
-                width: 100%;
-            }
+.Player-cont {
+  background-color: var(--dark-elv-2);
+  height: 100%;
+  max-width: 1650px;
+  width: calc(100% - 100px);
+  margin-top: 24px;
+}
+.Player-div {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+.Player-div-title {
+  width: 100%;
+  padding: 24px 0px 0px 24px;
+}
+.Player-div-table {
+  padding: 0px 24px 48px 24px;
+  width: 100%;
+}
 .Rec-root {
-    width: 100vw;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    align-items: center;
-    min-height: 100vh;
-    padding-bottom: 48px;
-
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  min-height: 100vh;
+  padding-bottom: 48px;
 }
-    
-    .Rec-cont {
-        background-color: var(--dark-elv-2);
-        height: 100%;
-        max-width: 1650px;
-        width: calc(100% - 100px);
-        margin: 24px 0px 0px 0px;
-        border: 1px solid var(--color-blue);
-        display: flex;
-        justify-content: space-around;
 
-    }
-
-
-   
-    
-    
-   
-
+.Rec-cont {
+  background-color: var(--dark-elv-2);
+  height: 100%;
+  max-width: 1650px;
+  width: calc(100% - 100px);
+  margin: 24px 0px 0px 0px;
+  border: 1px solid var(--color-blue);
+  display: flex;
+  justify-content: space-around;
+}
 
 .Link {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .color-player {
-    color: var(--color-cyan);
+  color: var(--color-cyan);
 }
 .color-league {
-    color: var(--color-blue);
+  color: var(--color-blue);
 }
-
 
 .Title {
-    color: var(--text-title);
-    font-size: 20px;
+  color: var(--text-title);
+  font-size: 20px;
 }
 .Sub {
-    font-size: 16px;
+  font-size: 16px;
 }
-            
+
 @media only screen and (max-width: 888px) {
-    .Ov-cont {
-        width: 100%;
-    }
-    .Ov-div-table {
-        width: 100%;
-    }
-    .League-cont {
-        width: 100%;
-    }
+  .Ov-cont {
+    width: 100%;
+  }
+  .Ov-div-table {
+    width: 100%;
+  }
+  .League-cont {
+    width: 100%;
+  }
 }
-    

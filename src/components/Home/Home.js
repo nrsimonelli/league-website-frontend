@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Button } from "antd";
-
+import { Favorite, Star, Settings } from "@material-ui/icons";
 import Footer from "../Footer/Footer";
 import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
@@ -36,7 +36,45 @@ class Home extends Component {
   render() {
     return (
       <div className="Home">
-        <div className="Home-img-cont"></div>
+        <div className="Welcome-cont">
+          <div className="Welcome-text">Welcome to Scythe League</div>
+          <div className="Welcome-text-2">
+            Your central location for all things competitive scythe{" "}
+          </div>
+          <Button
+            className="button-welcome"
+            type="primary"
+            shape="default"
+            size="large"
+          >
+            View Upcoming Events
+          </Button>
+        </div>
+        <div className="Icon-cont">
+          <div className="Icon-desc">
+            <Settings
+              style={{ color: "var(--color-blue)" }}
+              fontSize={"inherit"}
+            />
+            <div className="Icon-text">Upgrade your skiils</div>
+          </div>
+
+          <div className="Icon-desc">
+            <Favorite
+              style={{ color: "var(--color-red)" }}
+              fontSize={"inherit"}
+            />
+            <div className="Icon-text">Join the community</div>
+          </div>
+
+          <div className="Icon-desc">
+            <Star
+              style={{ color: "var(--color-yellow)" }}
+              fontSize={"inherit"}
+            />
+            <div className="Icon-text">Compete against the best</div>
+          </div>
+        </div>
         <div className="Button-cont">
           <Button
             type="primary"

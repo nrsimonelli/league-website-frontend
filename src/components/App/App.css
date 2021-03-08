@@ -52,11 +52,14 @@ body {
   margin: 0;
   padding: 0;
 }
+Tabs {
+  /* background-color: var(--dark-elv-1); */
+}
 
 .Nav-root {
   background-color: var(--dark-elv-3);
   color: var(--text-title);
-  font-size: calc(10px + 2vmin);
+  font-size: 16px;
   width: 100vw;
   height: 84px;
   display: flex;
@@ -71,7 +74,6 @@ body {
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  max-width: 1650px;
   width: calc(100% - 100px);
 }
 
@@ -93,17 +95,71 @@ body {
   background-position: top right;
   background-size: cover;
   position: fixed;
+  z-index: 0;
+}
+.Welcome-cont {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  font-size: 24px;
+  height: 200px;
+  width: 100%;
+  max-width: 1140px;
+  margin-top: 24px;
+  border: 2px solid green;
+}
+.Welcome-text {
+  text-align: left;
+  margin-left: 24px;
+  margin-top: 24px;
+}
+.Welcome-text-2 {
+  text-align: left;
+  margin-left: 24px;
+  margin-top: 24px;
+  font-size: 12px;
+}
+.button-welcome {
+  margin-top: 24px;
+  margin-left: 24px;
+}
+.Icon-cont {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  font-size: 64px;
+  height: 200px;
+  width: 100%;
+  max-width: 1140px;
+  margin-top: 24px;
+  border: 2px solid green;
+}
+.Icon-desc {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  border: 1px solid var(--color-blue);
+  height: 150px;
+  width: 100px;
+  text-align: center;
+}
+.Icon-text {
+  font-size: 12px;
 }
 
 .Button-cont {
   display: flex;
   flex-direction: row;
-  align-items: flex-end;
+  align-items: center;
   justify-content: space-around;
-  height: calc(100vh - 168px);
-  width: 300px;
-
-  z-index: 1;
+  height: 200px;
+  width: 100%;
+  max-width: 1140px;
+  margin-top: 24px;
+  border: 2px solid green;
 }
 
 .Footer {
@@ -125,12 +181,13 @@ body {
   align-items: center;
   min-height: 100vh;
   padding-bottom: 48px;
+  margin-top: 84px;
 }
 
 .Ov-cont {
   background-color: var(--dark-elv-2);
   height: 100%;
-  max-width: 1650px;
+  max-width: 1140px;
   width: calc(100% - 100px);
   margin: 24px 0px 0px 0px;
 }
@@ -185,7 +242,7 @@ Table {
 .League-cont {
   background-color: var(--dark-elv-2);
   height: 100%;
-  max-width: 1650px;
+  max-width: 1140px;
   width: calc(100% - 100px);
   margin-top: 24px;
 }
@@ -216,7 +273,7 @@ Table {
 .Player-cont {
   background-color: var(--dark-elv-2);
   height: 100%;
-  max-width: 1650px;
+  max-width: 1140px;
   width: calc(100% - 100px);
   margin-top: 24px;
 }
@@ -247,7 +304,7 @@ Table {
 .Rec-cont {
   background-color: var(--dark-elv-2);
   height: 100%;
-  max-width: 1650px;
+  max-width: 1140px;
   width: calc(100% - 100px);
   margin: 24px 0px 0px 0px;
   border: 1px solid var(--color-blue);
@@ -255,8 +312,10 @@ Table {
   justify-content: space-around;
 }
 .EventList {
-  border: 1px solid pink;
-  min-height: 100vh;
+  max-width: 1140px;
+  width: 100%;
+  border: 2px solid red;
+  z-index: 1;
 }
 
 .Link {

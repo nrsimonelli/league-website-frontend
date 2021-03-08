@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
+import { Typography } from "antd";
+
+const { Title } = Typography;
 
 class Nav extends Component {
   navToHome = () => {
@@ -18,9 +21,9 @@ class Nav extends Component {
     return (
       <div className="Nav-root">
         <div className="Nav-cont">
-          <div className="Link" onClick={this.navToHome}>
-            scythe league
-          </div>
+          <Title className="Link" onClick={this.navToHome}>
+            Scythe
+          </Title>
           <div className="Link">icon/link container</div>
           {this.props.user.discord_tag ? (
             <div className="Link">{this.props.user.discord_tag}</div>
